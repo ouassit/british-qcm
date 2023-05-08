@@ -69,8 +69,10 @@
 						<td>
 							@if ($student_test->expired)
 								<span style="font-weight: bold; color : blue">FINISHED</span>
+							@elseif($student_test->consumed_time > 0)
+								<span style="font-weight: bold; color : orange">IN PROGRESS ...</span>		
 							@else
-							<span style="font-weight: bold; color : orange">IN PROGRESS ...</span>
+								<span style="font-weight: bold; color : green">NOT STARTED</span>
 							@endif
 						</td>
 						<td>{{$student_test->result}} / {{$student_test->test->total_questions}}</td>
