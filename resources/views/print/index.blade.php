@@ -44,7 +44,7 @@ Test Result
 	</tr>
 	@foreach($student_test->answers as $question)
 		<tr>
-			<td>{{$question->question}}</td>
+			<td>{!!$question->question!!}</td>
 			<td>{{$question->correct_choice}}</td>
 			<td>{{$question->selected_choice}}</td>
 			<td style="text-align: center">
