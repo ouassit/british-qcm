@@ -387,7 +387,7 @@ class StudentTestController extends Controller
             }
 
             // Student test expire
-            $student_test = StudentTest::find($input['student_test_id']);
+            $student_test = StudentTest::with('test')->find($input['student_test_id']);
             if(!is_null($student_test)){
                 $student_test->expired = 1;
                 $student_test->save(); 
