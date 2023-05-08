@@ -42,7 +42,7 @@ class StudentTest extends Model
         return DB::select('SELECT questions.question as question,
                 (SELECT answer FROM choices WHERE choices.question_id = questions.id AND correct=1) AS correct_choice,
                 (SELECT answer FROM answers JOIN choices ON choices.id=answers.choice_id WHERE answers.question_id = questions.id and student_test_id='.$this->id .') AS selected_choice,
-                (SELECT correct FROM answers JOIN choices ON choices.id=answers.choice_id WHERE answers.question_id = questions.id) AS correct
+                (SELECT correct FROM answers JOIN choices ON choices.id=answers.choice_id WHERE answers.question_id = questions.id and student_test_id='.$this->id .') AS correct
                 from questions 
                 WHERE questions.test_id = '.$this->test_id );
         
