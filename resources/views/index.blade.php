@@ -7,10 +7,10 @@
 </head>
 <body>
     <app-root></app-root>
-    <script src="{{ asset('js/client/runtime.js') }}"></script>
-    <script src="{{ asset('js/client/polyfills.js') }}"></script>
-    <script src="{{ asset('js/client/styles.js') }}"></script>
-    <script src="{{ asset('js/client/vendor.js') }}"></script>
-    <script src="{{ asset('js/client/main.js') }}"></script>
+    <script src="{{ asset('client/runtime.js') }}"></script>
+    <script src="{{ asset('client/polyfills.js') }}"></script>
+    <script src="{{ asset('client/styles.js') }}"></script>
+    <script src="{{ asset('client/vendor.js') }}"></script>
+    <script src="{{ asset('client/main.js') }}"></script>
 </body>
 </html>
