@@ -393,7 +393,7 @@ class StudentTestController extends Controller
                 $student_test->save(); 
             }
 
-            return response()->json($count.' '.sizeof($answers), 200);
+            return response()->json($student_test, 200);
 
         } catch(Throwable $e){
             report($e);
