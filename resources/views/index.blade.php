@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your App Title Here</title>
+    <title>British Workshop Test</title>
     <base href="/">
     <link rel="stylesheet" src="{{ asset('client/styles.css') }}" />
 </head>
