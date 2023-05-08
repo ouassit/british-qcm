@@ -51,6 +51,7 @@
 						<th>Email</th>
 						<th>Phone</th>
 						<th>Date</th>
+						<th>Status</th>
 						<th>Result</th>
 						<th>Actions</th>
 					</tr>
@@ -65,10 +66,17 @@
 						<td>{{$student_test->email}}</td>
 						<td>{{$student_test->phone}}</td>
 						<td>{{$student_test->date}}</td>
+						<td>
+							@if ($student_test->expired)
+								<span style="font-weight: bold; color : blue">FINISHED</span>
+							@else
+							<span style="font-weight: bold; color : orange">IN PROGRESS ...</span>
+							@endif
+						</td>
 						<td>{{$student_test->result}} / {{$student_test->test->total_questions}}</td>
 						<td>
-							<a target="_blank" style="color: green;" href="{{ route('students_tests.print', ['student_test_id'=> $student_test->id, 'correction' => 0]) }}">Print Grade</a>
-							<a target="_blank" style="color: blue;" href="{{ route('students_tests.print', ['student_test_id'=> $student_test->id, 'correction' => 1]) }}">Print Answers</a>
+							<a target="_blank" style="color: darkmagenta;" href="{{ route('students_tests.print', ['student_test_id'=> $student_test->id, 'correction' => 0]) }}"><i class="material-icons local_print_shop" data-toggle="tooltip" title="Print Result">&#xe555;</i></a>
+							<a target="_blank" style="color: blue;" href="{{ route('students_tests.print', ['student_test_id'=> $student_test->id, 'correction' => 1]) }}"><i class="material-icons local_print_shop" data-toggle="tooltip" title="Print Answers">&#xe555;</i></a>
 
 							<a name='edit' style="color: green;" href="#edit" data-target="#edit" data-id="{{$student_test->id}}" data-action="{{ route('students_tests.update', $student_test->id) }}" data-action-get="{{ route('students_tests.show', $student_test->id) }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a style="color: red;" href="#delete" data-target="#delete" data-action="{{ route('students_tests.destroy', $student_test->id) }}"  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
