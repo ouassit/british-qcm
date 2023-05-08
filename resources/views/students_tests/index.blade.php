@@ -213,7 +213,7 @@
 						<input type="number" required class="form-control" name="consumed_time" id="consumed_time" />
 						<span class="text-danger" id="consumed_time-error"></span>
 					</div>
-					<div class="form-group">
+					<div class="form-check mb-3">
 						<input class="form-check-input" id="expired" type="checkbox" name="expired">
 						<label class="form-check-label" for="expired">
 							Expired

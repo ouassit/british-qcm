@@ -106,7 +106,9 @@ $('a[name="edit"]').click(function (e) {
     $.get(actionGet, function(data, status){
         console.log(data);
         for(var key in data){            
-            if(modal.find('form').find('#'+key).is("input")){
+            if(modal.find('form').find('#'+key).is(':checkbox')){
+                modal.find('form').find('#'+key).prop('checked', data[key]);
+            } else if(modal.find('form').find('#'+key).is("input")){
                 modal.find('form').find('#'+key).val(data[key]);
             } 
             else if(modal.find('form').find('#'+key).is("textarea")){

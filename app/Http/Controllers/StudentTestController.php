@@ -32,7 +32,7 @@ class StudentTestController extends Controller
 
         $students_tests = StudentTest::whereHas('test', function($q){
             $q->where('user_id', auth()->user()->id);
-         });
+        });
         if($request->get('filter_fullname')!=''){
             $students_tests = $students_tests->where(DB::raw("CONCAT(firstname,' ',lastname)"), 'like', '%'.$request->get('filter_fullname').'%');
         }
@@ -155,6 +155,12 @@ class StudentTestController extends Controller
             
             if($request->has('birthday'))
                 $input['birthday'] = Carbon::createFromTimestamp(strtotime($input['birthday']))->format('Y-m-d');
+            
+            if($request->has('expired')){
+                $input['expired'] = 1;
+            } else {
+                $input['expired'] = 0;
+            }
 
             $entity->update($input);
             $entity->save();
