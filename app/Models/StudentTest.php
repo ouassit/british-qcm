@@ -19,7 +19,7 @@ class StudentTest extends Model
      *
      * @var array<int, string>
      */
-    protected $guarded = ['id'];
+    protected $fillable = ['id', 'test_id', 'firstname','lastname','birthday','email','phone' , 'access_code', 'expired'];
 
     protected $appends = ['result', 'answers'];
 

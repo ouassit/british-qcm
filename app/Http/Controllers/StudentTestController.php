@@ -97,11 +97,11 @@ class StudentTestController extends Controller
             if($request->has('birthday'))
                 $input['birthday'] = Carbon::createFromTimestamp(strtotime($input['birthday']))->format('Y-m-d');
             
-            $input['access_code'] = uniqid ('BWC');
+            $input['access_code'] = uniqid ('');
 
             $entity = StudentTest::create($input);
 
-            return response()->json(new JsonResource($entity), 200);
+            return response()->json($entity, 200);
 
         } catch(Throwable $e){
             report($e);
@@ -206,12 +206,38 @@ class StudentTestController extends Controller
 
     
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function apiStore(Request $request)
+    {
+        $rules = [
+             'firstname' => 'required',
+             'lastname' => 'required',
+        ];
+ 
+        try {
+     
+            $input = $request->all();
+     
+            $validator = Validator::make($input, $rules);
+     
+            if($validator->fails()){
+                return response()->json($validator->errors(), 401);
+            }
+            
+            if($request->has('birthday'))
+                $input['birthday'] = Carbon::createFromTimestamp(strtotime($input['birthday']))->format('Y-m-d');
+             
+            $input['access_code'] = uniqid ('');
+            $input['expired'] = 0;
+ 
+            $entity = StudentTest::create($input);
+ 
+            return response()->json($entity, 200);
+ 
+        } catch(Throwable $e){
+            return response()->json($e->getMessage(), 401);      
+        }
+    }
+
     public function apiShow(Request $request, $student_test_id)
     {
         try {
@@ -269,7 +295,7 @@ class StudentTestController extends Controller
             $entity->update($input);
             $entity->save();
 
-            return response()->json(new JsonResource($entity), 200);
+            return response()->json($entity, 200);
 
         } catch(Throwable $e){
             report($e);
@@ -430,6 +456,10 @@ class StudentTestController extends Controller
             report($e);
             return response()->json($e->getMessage(), 401);      
         }
+    }
+
+    public function apiTests(Request $request, $user_id){
+        return response()->json(Test::where('user_id', $user_id)->get(), 200);
     }
     
 }
