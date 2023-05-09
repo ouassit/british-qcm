@@ -34,7 +34,7 @@ class SimpleAuthController extends Controller
                 return response()->json($user, 200);
             }
 
-            return response()->json($user, 200);
+            return response()->json('Credentials issue', 401);
         } catch (Exception $e) {
             return response()->json($e->getMessage(), 404);
         }

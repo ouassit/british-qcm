@@ -204,7 +204,6 @@ class StudentTestController extends Controller
      * FOR API APP ===================================================================
      */
 
-    
 
     public function apiStore(Request $request)
     {
@@ -258,13 +257,7 @@ class StudentTestController extends Controller
         }
     }
     
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function apiUpdate(Request $request, $id)
     {
 
@@ -303,12 +296,6 @@ class StudentTestController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function findByAccessCode(Request $request, $access_code)
     {
         try {
