@@ -1,12 +1,15 @@
+@extends('layouts.app')
 
-<x-app-layout>
+@section('content')
+<div class="container">
+   	<div class="row justify-content-center">
 	
 
-    <x-slot name="header">
+    <div name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Settings') }}
         </h2>
-    </x-slot>
+    </div>
 
 	<div class="col-md-12">
         <div class="card shadow-sm">
@@ -41,4 +44,6 @@
         </div>
     </div>
 
-</x-app-layout>
+</div>
+</div>
+@endsection

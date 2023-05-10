@@ -1,15 +1,18 @@
+@extends('layouts.app')
 
-@push('scripts')
-	<script src="{{ asset('js/students_tests.js') }}"></script>
-@endpush
+@section('content')
+<div class="container">
+   	<div class="row justify-content-center">
 
-<x-app-layout>
+	@push('scripts')
+		<script src="{{ asset('js/students_tests.js') }}"></script>
+	@endpush
 
-    <x-slot name="header">
+    <div name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Students Tests Management') }}
         </h2>
-    </x-slot>
+    </div>
 
 	<div class="row">
 		<div class="filter-container">
@@ -243,4 +246,6 @@
 
 
 
-</x-app-layout>
+	</div>
+</div>
+@endsection
