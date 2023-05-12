@@ -448,5 +448,9 @@ class StudentTestController extends Controller
     public function apiTests(Request $request, $user_id){
         return response()->json(Test::where('user_id', $user_id)->get(), 200);
     }
+
+    public function apiCategories(Request $request, $user_id){
+        return response()->json(Categorie::where('user_id', $user_id)->get(), 200);
+    }
     
 }
