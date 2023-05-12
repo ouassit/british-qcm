@@ -258,7 +258,6 @@ class StudentTestController extends Controller
         }
     }
     
-
     public function apiUpdate(Request $request, $id)
     {
 
@@ -455,7 +454,7 @@ class StudentTestController extends Controller
     }
     
     public function apiQuestions(Request $request, $user_id, $test_id){
-        return response()->json(Question::where('user_id', $user_id)->where('test_id', $test_id)->get(), 200);
+        return response()->json(Question::with('choices')->where('user_id', $user_id)->where('test_id', $test_id)->get(), 200);
     }
 
 }
