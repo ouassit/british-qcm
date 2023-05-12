@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Answer;
 use App\Models\Categorie;
 use App\Models\Choice;
+use App\Models\Question;
 use App\Models\StudentTest;
 use App\Models\Test;
 use Carbon\Carbon;
@@ -453,4 +454,8 @@ class StudentTestController extends Controller
         return response()->json(Categorie::where('user_id', $user_id)->get(), 200);
     }
     
+    public function apiQuestions(Request $request, $user_id, $test_id){
+        return response()->json(Question::where('user_id', $user_id)->where('test_id', $test_id)->get(), 200);
+    }
+
 }

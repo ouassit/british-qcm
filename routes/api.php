@@ -29,5 +29,6 @@ Route::middleware(['cors'])->group(function () {
     Route::post('auth/simplelogin', '\App\Http\Controllers\SimpleAuthController@simpleLogin');
     Route::get('students_tests/tests/{user_id}', '\App\Http\Controllers\StudentTestController@apiTests');
     Route::get('students_tests/categories/{user_id}', '\App\Http\Controllers\StudentTestController@apiCategories');
+    Route::get('students_tests/questions/{user_id}/{test_id}', '\App\Http\Controllers\StudentTestController@apiQuestions');
 });
 
