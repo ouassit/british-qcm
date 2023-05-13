@@ -78,7 +78,12 @@
 								<span style="font-weight: bold; color : green">NOT STARTED</span>
 							@endif
 						</td>
-						<td>{{$student_test->result}} / {{$student_test->test->total_questions}}</td>
+						<td>
+							@if($student_test->access_code!='')
+							{{$student_test->result}} / {{$student_test->test->total_questions}}
+							@else
+							{{$student_test->tmp_result}}
+						</td>
 						<td>
 							<a target="_blank" style="color: darkmagenta;" href="{{ route('students_tests.print', ['student_test_id'=> $student_test->id, 'correction' => 0]) }}"><i class="material-icons local_print_shop" data-toggle="tooltip" title="Print Result">&#xe555;</i></a>
 							<a target="_blank" style="color: blue;" href="{{ route('students_tests.print', ['student_test_id'=> $student_test->id, 'correction' => 1]) }}"><i class="material-icons local_print_shop" data-toggle="tooltip" title="Print Answers">&#xe555;</i></a>

@@ -37,7 +37,7 @@ class StudentTestController extends Controller
         if($request->get('filter_fullname')!=''){
             $students_tests = $students_tests->where(DB::raw("CONCAT(firstname,' ',lastname)"), 'like', '%'.$request->get('filter_fullname').'%');
         }
-        $students_tests = $students_tests->orderBy('date', 'desc')->paginate(200);
+        $students_tests = $students_tests->orderBy('date', 'desc')->paginate(50);
         return view('students_tests.index', compact('students_tests', 'tests'));
     }
 
