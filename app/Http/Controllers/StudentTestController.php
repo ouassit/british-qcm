@@ -369,7 +369,8 @@ class StudentTestController extends Controller
             $input = $request->all();
 
             $rules_answers = [
-                'answers'
+                'answers',
+                'student_test_id'
             ];
     
             $validator = Validator::make($input, $rules_answers);
@@ -394,7 +395,7 @@ class StudentTestController extends Controller
                         $stid = $answers[$i]['student_test_id']; 
                     }
                     $count++;
-                } catch(Throwable $e){  
+                } catch(Throwable $e){   
                     return response()->json($e->getMessage(), 401);  
                 }
             }
