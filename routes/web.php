@@ -35,6 +35,11 @@ Route::middleware([
 
     Route::resource('settings', \App\Http\Controllers\SettingsController::class);
 
+    Route::get('/change-password', [App\Http\Controllers\SettingsController::class, 'changePassword'])->name('change-password');
+    Route::post('/change-password', [App\Http\Controllers\SettingsController::class, 'updatePassword'])->name('update-password');
+
+
+
 
 
 });
