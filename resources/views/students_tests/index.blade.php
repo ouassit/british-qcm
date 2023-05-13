@@ -83,6 +83,7 @@
 							{{$student_test->result}} / {{$student_test->test->total_questions}}
 							@else
 							{{$student_test->tmp_result}}
+							@endif
 						</td>
 						<td>
 							<a target="_blank" style="color: darkmagenta;" href="{{ route('students_tests.print', ['student_test_id'=> $student_test->id, 'correction' => 0]) }}"><i class="material-icons local_print_shop" data-toggle="tooltip" title="Print Result">&#xe555;</i></a>
