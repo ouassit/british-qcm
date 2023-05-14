@@ -41,7 +41,7 @@ Route::middleware([
 
 });
 
-Route::get('login', '\App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
+Route::get('login', '\App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login')->secure();
 Route::post('login', '\App\Http\Controllers\Auth\LoginController@login')->name('login')->secure();
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
