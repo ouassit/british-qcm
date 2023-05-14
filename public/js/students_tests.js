@@ -3,6 +3,49 @@ $(document).ready(function(){
     
 });
 
+$('#addmultiple').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var modal = $(this);
+    $('[id$=-error]').text('');
+    $('#addmultiple-error').hide();
+    modal.find('tr:gt(0)').remove();
+    modal.find('form')[0].reset();
+});
+
+$('#addmultiple').find('form').submit(function(e) {
+
+    e.preventDefault();
+
+    var form = $(this);
+    var actionUrl = form.attr('action'); 
+    var actionMethod = form.attr('method'); 
+
+    $.ajax({
+        method: actionMethod,
+        url: actionUrl,
+        data: form.serialize(),
+        success :function(response) {
+            console.log(response);
+            $('#addmultiple-success').show();
+            location.reload();
+        },
+        error: function(e) {
+            console.log(e);
+            if(e.responseJSON){
+                $('#addmultiple-error').text(e.responseJSON.message);
+                for(var key in e.responseJSON.errors){
+                    console.log($('#'+key+'-error'));
+                    form.find('#'+key+'-error').text(e.responseJSON.errors[key][0]);
+                }
+            }else{
+                $('#addmultiple-error').text(e.statusText);
+            }
+            $('#addmultiple-error').show();
+        }
+    });
+
+});
+
 $('#add').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var modal = $(this);

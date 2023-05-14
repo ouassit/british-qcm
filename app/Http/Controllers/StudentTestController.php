@@ -113,6 +113,7 @@ class StudentTestController extends Controller
     public function storeMultiple(Request $request)
     {
         $rules = [
+            'test_id' => 'required',
             'count' => 'required',
         ];
 
@@ -128,6 +129,9 @@ class StudentTestController extends Controller
             
             for ($i=0; $i <$input['count'] ; $i++) { 
                 $data = [];
+                $data['test_id'] = $input['test_id'];
+                $data['firstname'] = '';
+                $data['lastname'] = '';
                 $data['access_code'] = uniqid ('');
                 $entity = StudentTest::create($data);
             }

@@ -32,7 +32,7 @@ Route::middleware([
         ['index', 'create', 'store', 'storemultiple', 'destroy', 'show', 'update', 'print']
     );
     Route::get('students_tests/print/{student_test_id}/{correction}', '\App\Http\Controllers\StudentTestController@print')->name('students_tests.print');
-    Route::get('students_tests/storemultiple', '\App\Http\Controllers\StudentTestController@storeMultiple')->name('students_tests.storemultiple');
+    Route::post('students_tests/storemultiple', '\App\Http\Controllers\StudentTestController@storeMultiple')->name('students_tests.storemultiple');
 
     Route::resource('settings', \App\Http\Controllers\SettingsController::class);
 
