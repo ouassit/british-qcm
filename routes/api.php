@@ -31,4 +31,3 @@ Route::middleware(['cors'])->group(function () {
     Route::get('students_tests/categories/{user_id}', '\App\Http\Controllers\StudentTestController@apiCategories');
     Route::get('students_tests/questions/{user_id}/{test_id}', '\App\Http\Controllers\StudentTestController@apiQuestions');
 });
-
