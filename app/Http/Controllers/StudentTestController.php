@@ -110,6 +110,37 @@ class StudentTestController extends Controller
         }
     }
 
+    public function storeMultiple(Request $request)
+    {
+        $rules = [
+            'count' => 'required',
+        ];
+
+        try {
+    
+            $input = $request->all();
+    
+            $validator = Validator::make($input, $rules);
+    
+            if($validator->fails()){
+                return response()->json($validator->errors(), 401);
+            }
+            
+            for ($i=0; $i <$input['count'] ; $i++) { 
+                $data = [];
+                $data['access_code'] = uniqid ('');
+                $entity = StudentTest::create($data);
+            }
+            
+            return response()->json('', 200);
+
+        } catch(Throwable $e){
+            report($e);
+            return response()->json($e->getMessage(), 401);      
+        }
+    }
+    
+
     public function show(Request $request, $student_test_id)
     {
         try {

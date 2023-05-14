@@ -41,6 +41,9 @@
 					<div class="col-sm-12">
 						<a href="#add" class="btn btn-success" data-toggle="modal"><i class="fa fa-plus"></i> <span>New Student Test</span></a>
 					</div>
+					<div class="col-sm-12">
+						<a href="#addmultiple" class="btn btn-primary" data-toggle="modal"><i class="fa fa-plus"></i> <span>Multiple Students Tests</span></a>
+					</div>
 				</div>
 			</div>
 
@@ -249,7 +252,39 @@
 		</div>
 	</div>
 
+	<!-- Modal Add-->
+	<div class="modal fade" id="multiple" tabindex="-1" role="dialog" aria-labelledby="myModalLabelAdd">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Add Multiple</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<form action="{{route('students_tests.storemultiple')}}" method="post">
 
+				{{csrf_field()}}
+
+				<div id="add-error" class="alert alert-danger" style="margin: 10px; display:none">  
+				</div>
+				<div id="add-success" class="alert alert-success" style="margin: 10px; display:none">  
+					<strong>Info!</strong> Added successfully.
+				</div>
+
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="count">Number of tests</label>
+						<input type="number" required class="form-control" name="count" id="count" />
+						<span class="text-danger" id="count-error"></span>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Create</button>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
 
 
 	</div>
