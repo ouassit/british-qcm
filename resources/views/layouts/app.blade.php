@@ -10,15 +10,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="http://qcm2.joksolutions.com/js/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-    <script src="http://qcm2.joksolutions.com/js/jquery-ui.min.js" crossorigin="anonymous"></script>
-    <script src="http://qcm2.joksolutions.com/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="http://qcm2.joksolutions.com/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{asset('js/jquery-3.6.0.min.js')}}" crossorigin="anonymous"></script>
+    <script src="{{asset('js/jquery-ui.min.js')}}" crossorigin="anonymous"></script>
+    <script src="{{asset('js/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="http://qcm2.joksolutions.com/js/solid.min.js" defer></script>
-    <script src="http://qcm2.joksolutions.com/js/fontawesome.min.js" defer></script>
+    <script src="{{ asset('js/solid.min.js') }}" defer></script>
+    <script src="{{ asset('js/fontawesome.min.js') }}" defer></script>
     <!--<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>-->
-    <script src="http://qcm2.joksolutions.com/js/common.js?v={{ time() }}" defer></script>
+    <script src="{{ asset('js/common.js') }}?v={{ time() }}" defer></script>
 
 
     <!-- Fonts -->
