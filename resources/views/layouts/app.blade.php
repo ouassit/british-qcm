@@ -50,7 +50,7 @@
                     @else
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('categories.index') }}">
+                                <a class="nav-link" href="/categories">
                                     {{ __('Categories') }}
                                 </a>
                             </li>
