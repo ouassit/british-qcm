@@ -55,7 +55,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tests">
+                                <a class="nav-link" href="/quizs">
                                     {{ __('Tests') }}
                                 </a>
                             </li>

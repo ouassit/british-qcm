@@ -25,7 +25,7 @@ Route::middleware([
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('categories', \App\Http\Controllers\CategorieController::class);
-    Route::resource('tests', \App\Http\Controllers\TestController::class);
+    Route::resource('quizs', \App\Http\Controllers\TestController::class);
     Route::resource('questions', \App\Http\Controllers\QuestionController::class);
     
     Route::resource('students_tests', \App\Http\Controllers\StudentTestController::class)->only(

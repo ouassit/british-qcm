@@ -234,6 +234,6 @@ return [
 
     ],
 
-    'force_https' => false,
+    'force_https' => true,
 
 ];
