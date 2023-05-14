@@ -12,7 +12,7 @@
          </div>
 
          <div class="box" style="background-color: #b6e4a8">
-            <h2><a href="{{ route('tests.index') }}">Tests</a></h2>
+            <h2><a href="{{ route('quizs.index') }}">Tests</a></h2>
             <p>Test management</p>
          </div>
 

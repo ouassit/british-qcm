@@ -50,27 +50,27 @@
                     @else
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="/categories">
+                                <a class="nav-link" href="{{ route('categories.index') }}">
                                     {{ __('Categories') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/quizs">
+                                <a class="nav-link" href="{{ route('quizs.index') }}">
                                     {{ __('Tests') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/questions">
+                                <a class="nav-link" href="{{ route('questions.index') }}">
                                     {{ __('Questions') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/students_tests">
+                                <a class="nav-link" href="{{ route('students_tests.index') }}">
                                     {{ __('Students Tests') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/settings">
+                                <a class="nav-link" href="{{ route('settings.index') }}">
                                     {{ __('Settings') }}
                                 </a>
                             </li>
@@ -83,7 +83,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/login">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 

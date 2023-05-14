@@ -38,8 +38,8 @@
 							<td>{{$test->name}}</td>
 							<td>{{$test->duration}}</td>
 							<td>
-								<a style="color: green;" href="#edit" data-target="#edit" data-id="{{$test->id}}" data-action-get="{{ route('tests.show', $test->id) }}" data-action="{{ route('tests.update', $test->id) }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a style="color: red;" href="#delete" data-target="#delete" data-action="{{ route('tests.destroy', $test->id) }}"  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a style="color: green;" href="#edit" data-target="#edit" data-id="{{$test->id}}" data-action-get="{{ route('quizs.show', $test->id) }}" data-action="{{ route('quizs.update', $test->id) }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+								<a style="color: red;" href="#delete" data-target="#delete" data-action="{{ route('quizs.destroy', $test->id) }}"  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							</td>
 						</tr>
 						@endforeach
@@ -94,7 +94,7 @@
 					<h4 class="modal-title" id="myModalLabel">Add</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				</div>
-				<form action="{{route('tests.store')}}" method="post">
+				<form action="{{route('quizs.store')}}" method="post">
 					<div id="add-error" class="alert alert-danger" style="margin: 10px; display:none">  
 					</div>
 					<div id="add-success" class="alert alert-success" style="margin: 10px; display:none">  
