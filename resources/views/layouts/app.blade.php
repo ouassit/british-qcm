@@ -104,7 +104,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="/change-password') }}">
+                                    <a class="dropdown-item" href="/change-password">
                                         {{ __('Change Password') }}
                                     </a>
 
