@@ -39,10 +39,18 @@ Route::middleware([
     Route::get('/change-password', [App\Http\Controllers\SettingsController::class, 'changePassword'])->name('change-password');
     Route::post('/change-password', [App\Http\Controllers\SettingsController::class, 'updatePassword'])->name('update-password');
 
-
-
-
-
 });
 
-Auth::routes();
+Route::get('login', '\App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', '\App\Http\Controllers\Auth\LoginController@login');
+Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register', '\App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', '\App\Http\Controllers\Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('password/reset', '\App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email', '\App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('password/reset/{token}', '\App\Http\Controllers\Auth\ResetPasswordController@showResetForm');
+Route::post('password/reset', '\App\Http\Controllers\Auth\ResetPasswordController@reset');
