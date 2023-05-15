@@ -61,10 +61,8 @@ $('#add').find('form').submit(function(e) {
 
     var form = $(this);
     var actionUrl = form.attr('action'); 
-    var actionMethod = form.attr('method'); 
 
     $.ajax({
-        method: actionMethod,
         url: actionUrl,
         data: form.serialize(),
         success :function(response) {
