@@ -99,6 +99,8 @@ class StudentTestController extends Controller
             
             if($request->has('birthday'))
                 $input['birthday'] = Carbon::createFromTimestamp(strtotime($input['birthday']))->format('Y-m-d');
+            else
+                $input['birthday'] = Carbon::today()->format('Y-m-d');
             
             $input['access_code'] = uniqid ('');
 
@@ -135,6 +137,7 @@ class StudentTestController extends Controller
                 $data['firstname'] = '';
                 $data['lastname'] = '';
                 $data['access_code'] = uniqid ('');
+                $data['birthday'] = Carbon::today()->format('Y-m-d');
                 $entity = StudentTest::create($data);
             }
             
