@@ -29,11 +29,12 @@ Route::middleware([
     Route::resource('tests', \App\Http\Controllers\TestController::class);
     Route::resource('questions', \App\Http\Controllers\QuestionController::class);
     
+    Route::get('students_tests/print/{student_test_id}/{correction}', '\App\Http\Controllers\StudentTestController@print')->name('students_tests.print');
+    Route::post('students_tests/storemultiple', '\App\Http\Controllers\StudentTestController@storeMultiple')->name('students_tests.storemultiple');
     Route::resource('students_tests', \App\Http\Controllers\StudentTestController::class)->only(
         ['index', 'create', 'store', 'storemultiple', 'destroy', 'show', 'update', 'print']
     );
-    Route::get('students_tests/print/{student_test_id}/{correction}', '\App\Http\Controllers\StudentTestController@print')->name('students_tests.print');
-    Route::post('students_tests/storemultiple', '\App\Http\Controllers\StudentTestController@storeMultiple')->name('students_tests.storemultiple');
+    
 
     Route::resource('settings', \App\Http\Controllers\SettingsController::class);
 

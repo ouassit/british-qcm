@@ -124,13 +124,12 @@
 					<h4 class="modal-title" id="myModalLabel">Modification</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				</div>
-				<form action="" method="post">
+				<form action="" method="put">
 					<div id="edit-error" class="alert alert-danger" style="margin: 10px; display:none">  
 					</div>
 					<div id="edit-success" class="alert alert-success" style="margin: 10px; display:none">  
 						<strong>Info!</strong> Modification saved successfully.
 					</div>
-					{{method_field('post')}}
 					{{csrf_field()}}
 					<div class="modal-body">
 						
