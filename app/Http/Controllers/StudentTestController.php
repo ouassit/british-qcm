@@ -86,8 +86,6 @@ class StudentTestController extends Controller
         ];
 
         try {
-
-            return response()->json('here 1', 401);      
     
             $input = $request->all();
     
@@ -110,7 +108,7 @@ class StudentTestController extends Controller
 
         } catch(Throwable $e){
             report($e);
-            return response()->json('here 2', 401);      
+            return response()->json($e->getMessage(), 401);      
         }
     }
 
