@@ -60,10 +60,10 @@ $('#add').find('form').submit(function(e) {
     e.preventDefault();
 
     var form = $(this);
-    var actionUrl = form.attr('action'); 
+    //var actionUrl = form.attr('action'); 
 
     $.ajax({
-        url: actionUrl,
+        url: "",
         data: form.serialize(),
         success :function(response) {
             console.log(response);
