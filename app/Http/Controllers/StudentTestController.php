@@ -72,6 +72,10 @@ class StudentTestController extends Controller
         }
     }
 
+    function generateUniqueCode(){
+        $now =Carbon::now()->timestamp ;
+        return $now.'';
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -83,6 +87,7 @@ class StudentTestController extends Controller
         $rules = [
             'firstname' => 'required',
             'lastname' => 'required',
+            'test_id' => 'required',
         ];
 
         try {
@@ -100,7 +105,7 @@ class StudentTestController extends Controller
             else
                 $input['birthday'] = Carbon::today()->format('Y-m-d');
             
-            $input['access_code'] = uniqid ('');
+            $input['access_code'] = $this->generateUniqueCode();
 
             $entity = StudentTest::create($input);
 
@@ -134,9 +139,10 @@ class StudentTestController extends Controller
                 $data['test_id'] = $input['test_id'];
                 $data['firstname'] = '';
                 $data['lastname'] = '';
-                $data['access_code'] = uniqid ('');
+                $data['access_code'] = $this->generateUniqueCode();
                 $data['birthday'] = Carbon::today()->format('Y-m-d');
                 $entity = StudentTest::create($data);
+                sleep(1);
             }
             
             return response()->json('', 200);
@@ -264,7 +270,7 @@ class StudentTestController extends Controller
             if($request->has('birthday'))
                 $input['birthday'] = Carbon::createFromTimestamp(strtotime($input['birthday']))->format('Y-m-d');
              
-            $input['access_code'] = uniqid ('');
+            $input['access_code'] = $this->generateUniqueCode();
             $input['expired'] = 0;
  
             $entity = StudentTest::create($input);
