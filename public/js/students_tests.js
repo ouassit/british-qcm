@@ -63,7 +63,7 @@ $('#add').find('form').submit(function(e) {
     var actionUrl = form.attr('action'); 
 
     $.ajax({
-        url: actionUrl,
+        url: "",
         data: form.serialize(),
         success :function(response) {
             console.log(response);
