@@ -49,7 +49,7 @@
 						<th>Code</th>
 						<th>Test</th>
 						<th>Full Name</th>
-						<th>Birthday</th>
+						<th style="width: 140px">Birthday</th>
 						<th>Email</th>
 						<th>Phone</th>
 						<th>Date</th>
