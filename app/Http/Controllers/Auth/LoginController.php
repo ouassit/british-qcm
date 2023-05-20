@@ -43,4 +43,9 @@ class LoginController extends Controller
         return 'username';
     }
 
+    public function authenticated()
+    {
+        return redirect('/students_tests');
+    }
+
 }
