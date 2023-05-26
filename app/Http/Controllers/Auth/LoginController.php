@@ -48,4 +48,17 @@ class LoginController extends Controller
         return redirect('/students_tests');
     }
 
+    protected function credentials()
+    {
+        $username = $this->username();
+        $credentials = request()->only($username, 'password');
+        if (isset($credentials[$username])) {
+            $credentials[$username] = strtolower($credentials[$username]);
+        }
+        if (isset($credentials['password'])) {
+            $credentials[$username] = strtolower($credentials['password']);
+        }
+        return $credentials;
+    }
+
 }
