@@ -28,12 +28,12 @@ class SimpleAuthController extends Controller
                 return response()->json($validator->errors(), 401);
             }
 
-            $user = User::where('username', $input['username'])->first();
+            $user = User::where('username', strtolower($input['username']))->first();
             if(is_null($user)){
                 return response()->json("You have entered an invalid username or password", 404);
             }
 
-            if ($user && Hash::check($request->password, $user->password))
+            if ($user && Hash::check(strtolower($request->password), $user->password))
             {
                 return response()->json($user, 200);
             }
