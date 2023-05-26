@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -48,15 +49,15 @@ class LoginController extends Controller
         return redirect('/students_tests');
     }
 
-    protected function credentials()
+    protected function credentials(Request $request)
     {
         $username = $this->username();
-        $credentials = request()->only($username, 'password');
+        $credentials = $request->only($username, 'password');
         if (isset($credentials[$username])) {
             $credentials[$username] = strtolower($credentials[$username]);
         }
         if (isset($credentials['password'])) {
-            $credentials[$username] = strtolower($credentials['password']);
+            $credentials['password'] = strtolower($credentials['password']);
         }
         return $credentials;
     }
