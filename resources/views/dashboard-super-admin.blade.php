@@ -42,6 +42,13 @@
          <strong>{{ $centers->sum('assigned') }}</strong>
          <small>{{ $centers->sum('finished') }} completed</small>
       </div>
+
+      <div class="stat-card">
+         <span class="stat-icon"><i class="material-icons" aria-hidden="true">calendar_month</i></span>
+         <span class="stat-label">Last 30 days</span>
+         <strong>{{ $lastMonthStudentTests }}</strong>
+         <small>Student tests assigned</small>
+      </div>
    </section>
 
    <section class="dashboard-panel">
@@ -101,6 +108,7 @@
                      </td>
                      <td>
                         <strong>{{ $center['assigned'] }}</strong>
+                        <small class="admin-muted">{{ $center['last_month_assigned'] }} last 30 days</small>
                         <small class="admin-muted">{{ $center['finished'] }} finished, {{ $center['in_progress'] }} active</small>
                      </td>
                      <td>

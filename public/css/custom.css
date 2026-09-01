@@ -283,11 +283,14 @@ body.loading .overlay {
 
 .app-shell {
   min-height: 100vh;
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .app-container,
 .app-content {
   width: min(100% - 32px, 1420px);
+  min-width: 0;
   margin: 0 auto;
 }
 
@@ -396,6 +399,7 @@ body.loading .overlay {
 
 .dashboard-page {
   display: grid;
+  min-width: 0;
   gap: 1.5rem;
 }
 
@@ -616,6 +620,8 @@ body.loading .overlay {
 
 .dashboard-panel {
   padding: 1.25rem;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .panel-wide {
@@ -909,22 +915,38 @@ body.loading .overlay {
   min-height: 150px;
 }
 
+.super-admin-page {
+  max-width: 100%;
+  min-width: 0;
+}
+
 .admin-alert {
   display: none;
   margin-bottom: 1rem;
 }
 
+.super-admin-page .table-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.admin-centers-table {
+  min-width: 1120px;
+}
+
 .admin-centers-table td {
-  min-width: 120px;
+  min-width: 105px;
 }
 
 .admin-centers-table td:first-child {
-  min-width: 230px;
+  min-width: 210px;
 }
 
 .admin-centers-table td:last-child,
 .admin-centers-table td:nth-last-child(2) {
-  min-width: 260px;
+  min-width: 230px;
 }
 
 .center-cell,

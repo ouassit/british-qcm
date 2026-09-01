@@ -188,15 +188,18 @@ class DashboardController extends Controller
 
     private function superAdminDashboard()
     {
+        $lastMonthStart = Carbon::today()->subDays(30);
+
         $centers = User::where(function ($query) {
                 $query->where('super_admin', false)->orWhereNull('super_admin');
             })
             ->orderBy('name')
             ->get()
-            ->map(function ($center) {
+            ->map(function ($center) use ($lastMonthStart) {
                 $testIds = Test::where('user_id', $center->id)->pluck('id');
                 $studentTestsQuery = StudentTest::whereIn('test_id', $testIds);
                 $totalStudentTests = (clone $studentTestsQuery)->count();
+                $lastMonthStudentTests = (clone $studentTestsQuery)->whereDate('date', '>=', $lastMonthStart)->count();
                 $finishedTests = (clone $studentTestsQuery)->where('expired', 1)->count();
                 $inProgressTests = (clone $studentTestsQuery)
                     ->where(function ($query) {
@@ -238,6 +241,7 @@ class DashboardController extends Controller
                     'categories' => Categorie::where('user_id', $center->id)->count(),
                     'questions' => Question::where('user_id', $center->id)->count(),
                     'assigned' => $totalStudentTests,
+                    'last_month_assigned' => $lastMonthStudentTests,
                     'finished' => $finishedTests,
                     'in_progress' => $inProgressTests,
                     'average_score' => $averageScore,
@@ -254,13 +258,15 @@ class DashboardController extends Controller
         $expiredCenters = $centers->filter(function ($center) {
             return !is_null($center['days_left']) && $center['days_left'] < 0;
         })->count();
+        $lastMonthStudentTests = $centers->sum('last_month_assigned');
 
         return view('dashboard-super-admin', compact(
             'centers',
             'totalCenters',
             'activeCenters',
             'expiringCenters',
-            'expiredCenters'
+            'expiredCenters',
+            'lastMonthStudentTests'
         ));
     }
 
