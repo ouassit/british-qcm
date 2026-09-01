@@ -60,9 +60,6 @@ class LoginController extends Controller
         if (isset($credentials[$username])) {
             $credentials[$username] = strtolower($credentials[$username]);
         }
-        if (isset($credentials['password'])) {
-            $credentials['password'] = strtolower($credentials['password']);
-        }
         return $credentials;
     }
 
