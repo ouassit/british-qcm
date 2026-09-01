@@ -50,7 +50,7 @@ class LoginController extends Controller
             return redirect('/dashboard');
         }
 
-        return redirect('/students_tests');
+        return redirect('/dashboard');
     }
 
     protected function credentials(Request $request)
