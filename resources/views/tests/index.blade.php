@@ -29,6 +29,7 @@
 						<tr>
 							<th>Name</th>
 							<th>Duration</th>
+							<th>Questions Count</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -37,6 +38,7 @@
 						<tr>
 							<td>{{$test->name}}</td>
 							<td>{{$test->duration}}</td>
+							<td>{{count($test->questions)}}</td>
 							<td>
 								<a style="color: green;" href="#edit" data-target="#edit" data-id="{{$test->id}}" data-action-get="{{ route('quizs.show', $test->id) }}" data-action="{{ route('quizs.update', $test->id) }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 								<a style="color: red;" href="#delete" data-target="#delete" data-action="{{ route('quizs.destroy', $test->id) }}"  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>

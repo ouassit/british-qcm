@@ -57,6 +57,11 @@ class SettingsController extends Controller
         } else {
             $user->show_result = 0;
         }
+        if($request->has('print_category')){
+            $user->print_category = 1;
+        } else {
+            $user->print_category = 0;
+        }
         $user->save();
         return redirect()->route('settings.index');
     }

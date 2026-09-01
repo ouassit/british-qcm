@@ -33,7 +33,7 @@ class QuestionController extends Controller
         if($request->get('filter_test_id')!=''){
             $questions = $questions->where('test_id', $request->get('filter_test_id'));
         }
-        $questions = $questions->orderBy('id')->paginate(200);
+        $questions = $questions->orderBy('ordre')->orderBy('id')->paginate(300);
         $tests = Test::where('user_id', $user->id)->orderBy('name')->get();;
         $categories = Categorie::where('user_id', $user->id)->orderBy('name')->get();;
         return view('questions.index', compact('questions', 'categories', 'tests'));

@@ -24,4 +24,9 @@ class Categorie extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function questions(): HasMany
+    {
+        return $this->hasMany(Question::class);
+    }
+
 }

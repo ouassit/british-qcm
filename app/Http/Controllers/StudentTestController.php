@@ -29,16 +29,48 @@ class StudentTestController extends Controller
      */
     public function index(Request $request)
     {
-        $tests = Test::where('user_id', auth()->user()->id)->get();
+        $expireDate = Carbon::parse(auth()->user()->expire_date);
+        $now = Carbon::now();
+
+        
+        // Difference in days between today and expire_date
+        $daysLeft = $now->diffInDays($expireDate, false);
+        $expire = False;
+        $expireMessage = "";
+        if ($daysLeft <= 15 && $daysLeft >= 0) {
+            $expire = True;
+            $expireMessage = "Your subscription will expire in <b>".$daysLeft." days (".$expireDate->format('d/m/Y').")</b>.<br><br>Please renew to avoid service interruption.<br><br>
+                <div style='text-align: left; color : blue'>
+                Send Payement to : <br><br>
+                Bank : CIH<br>
+                RIB : 230 787 4079049211003800 97<br>
+                Send poroof of payment to : 0662584945<br></div>";
+        } else if($daysLeft < 0 ) {
+            $expire = True;
+            $expireMessage = "Your subscription has expired on ".$expireDate."<br><br>Please renew soon to avoid service interruption..<br><br>
+                <div style='text-align: left; color : blue'>
+                Send Payement to : <br><br>
+                Bank : CIH<br>
+                RIB : 230 787 4079049211003800 97<br>
+                Send poroof of payment to : 0662584945<br></div>";
+        }
+
+        $user = auth()->user();
+
+        $export = False;
+        if($user->export_test===1) $export = True;
+
+
+        $tests = Test::where('user_id', $user->id)->get();
 
         $students_tests = StudentTest::whereHas('test', function($q){
             $q->where('user_id', auth()->user()->id);
         });
         if($request->get('filter_fullname')!=''){
-            $students_tests = $students_tests->where(DB::raw("CONCAT(firstname,' ',lastname)"), 'like', '%'.$request->get('filter_fullname').'%');
+            $students_tests = $students_tests->where(DB::raw("CONCAT(firstname,' ',lastname, ' ', phone , ' ', access_code)"), 'like', '%'.$request->get('filter_fullname').'%');
         }
         $students_tests = $students_tests->orderBy('date', 'desc')->paginate(50);
-        return view('students_tests.index', compact('students_tests', 'tests'));
+        return view('students_tests.index', compact('students_tests', 'tests', "expire", "expireMessage", "export"));
     }
 
     /**
@@ -109,7 +141,8 @@ class StudentTestController extends Controller
 
             $entity = StudentTest::create($input);
 
-            $entity->access_code = 'BWC'.$entity->id;
+            $userId = Auth::id();
+            $entity->access_code = $this->codePrefix($userId).$entity->id;
             $entity->save();
 
             return response()->json($entity, 200);
@@ -145,7 +178,8 @@ class StudentTestController extends Controller
                 $data['birthday'] = Carbon::today()->format('Y-m-d');
                 $entity = StudentTest::create($data);
                 
-                $entity->access_code = 'BWC'.$entity->id;
+                $userId = Auth::id();
+                $entity->access_code = $this->codePrefix($userId).$entity->id;
                 $entity->save();
             }
             
@@ -157,6 +191,9 @@ class StudentTestController extends Controller
         }
     }
     
+    public function codePrefix($userId){
+        return "QCM";
+    }
 
     public function show(Request $request, $student_test_id)
     {
@@ -248,6 +285,42 @@ class StudentTestController extends Controller
         
     }
 
+    public function export(Request $request, $student_test_id) {
+        try {
+
+            $student_test = StudentTest::with('test.questions.choices','test.user')->find($student_test_id);
+            
+            if (is_null($student_test)) {
+                return response()->json('Entity not found.', 401);    
+            }
+
+            $pdf = PDF::loadView('export.index', 
+            ['student_test' => $student_test, 
+            'logo' => public_path('images/logo-'.$student_test->test->user->id.'.png'),
+            'true' => public_path('images/true.png'),
+            'false' => public_path('images/false.png'),
+            ]);
+
+            $pdf->output(); // must call before page_script
+            $dompdf = $pdf->getDomPDF();
+
+            $canvas = $dompdf->getCanvas();
+            $canvas->page_script(function ($pageNumber, $pageCount, $canvas, $fontMetrics) {
+                $text = "Page $pageNumber of $pageCount";
+                $font = $fontMetrics->get_font("Arial", "normal");
+                $size = 10;
+                $canvas->text(520, 820, $text, $font, $size); // (x,y) position
+            });
+
+            return $pdf->stream('result.pdf');
+
+        } catch(Throwable $e){
+            report($e);
+            return response()->json($e->getMessage(), 401);      
+        }
+        
+    }
+
 
     /***
      * FOR API APP ===================================================================
@@ -259,6 +332,7 @@ class StudentTestController extends Controller
         $rules = [
              'firstname' => 'required',
              'lastname' => 'required',
+             'test_id' => 'required',
         ];
  
         try {
@@ -277,7 +351,11 @@ class StudentTestController extends Controller
             $input['expired'] = 0;
  
             $entity = StudentTest::create($input);
-            $entity->access_code = 'BWC'.$entity->id;
+
+            $test = Test::with('user')->findOrFail($input['test_id']);
+            $userId = $test->user->id;
+
+            $entity->access_code = $this->codePrefix($userId).$entity->id;
             $entity->save();
  
             return response()->json($entity, 200);
@@ -328,7 +406,7 @@ class StudentTestController extends Controller
             $validator = Validator::make($input, $rules);
     
             if($validator->fails()){
-                return response()->json($validator->errors(), 401);   
+                return response()->json($validator->errors(), 301);   
             }
             
             if($input['birthday'])
@@ -340,8 +418,7 @@ class StudentTestController extends Controller
             return response()->json($entity, 200);
 
         } catch(Throwable $e){
-            report($e);
-            return response()->json($e->getMessage(), 401);      
+            return response()->json($e->getMessage(), 200);      
         }
     }
 
@@ -390,20 +467,20 @@ class StudentTestController extends Controller
             $answer = Answer::where('student_test_id', $input['student_test_id'])
             ->where('question_id', $input['question_id'])->first();
 
-            if(!is_null($answer)){
+            if(!is_null($answer)) {
                 $answer->update($input); 
-            }else{
+            } else{
                 Answer::create($input);
             }
-
+            
             // Updated consumed time
             $student_test = StudentTest::find($input['student_test_id']);
-            if(!is_null($student_test)){
+            if(!is_null($student_test)) {
                 $student_test->consumed_time = $input['consumed_time'];
                 $student_test->save(); 
             }
 
-            return response()->json($input, 200);
+            return response()->json($answer, 200);
 
         } catch(Throwable $e){
             report($e);
@@ -418,7 +495,7 @@ class StudentTestController extends Controller
             $input = $request->all();
 
             $rules_answers = [
-                'answers',
+                //'answers',
                 'student_test_id'
             ];
     
@@ -427,9 +504,9 @@ class StudentTestController extends Controller
                 return response()->json($validator->errors(), 401);
             }
 
-            $answers = json_decode($input['answers'], true);
+            //$answers = json_decode($input['answers'], true);
 
-            $count = 0;
+            /*$count = 0;
             for ($i=0; $i < sizeof($answers); $i++) { 
                 try{
                     if(!is_null($answers[$i])){
@@ -447,7 +524,7 @@ class StudentTestController extends Controller
                 } catch(Throwable $e){   
                     return response()->json($e->getMessage(), 401);  
                 }
-            }
+            }*/
 
             // Student test expire
             $student_test = StudentTest::with('test.user')->find($input['student_test_id']);
@@ -504,7 +581,7 @@ class StudentTestController extends Controller
     }
     
     public function apiQuestions(Request $request, $user_id, $test_id){
-        return response()->json(Question::with('choices')->where('user_id', $user_id)->where('test_id', $test_id)->get(), 200);
+        return response()->json(Question::with('choices')->where('user_id', $user_id)->where('test_id', $test_id)->orderBy('ordre')->get(), 200);
     }
 
 }

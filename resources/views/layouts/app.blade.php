@@ -13,7 +13,7 @@
     <script src="{{asset('js/jquery-3.6.0.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('js/popper.min.js')}}" crossorigin="anonymous"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}" rossorigin="anonymous"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/solid.min.js') }}" defer></script>
     <script src="{{ asset('js/fontawesome.min.js') }}" defer></script>
@@ -30,17 +30,18 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link rel="styessheet" href="{{ asset('css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
 
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="/dashboard">
-                    {{ config('app.name', 'Laravel') }}
+<body class="app-body">
+    <div id="app" class="app-shell">
+        <nav class="navbar navbar-expand-md app-navbar">
+            <div class="container-fluid app-container">
+                <a class="navbar-brand app-brand" href="/dashboard">
+                    <span class="app-brand-mark">PT</span>
+                    <span>{{ config('app.name', 'Laravel') }}</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler app-navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -48,54 +49,52 @@
                     <!-- Left Side Of Navbar -->
                     @guest
                     @else
-                        <ul class="navbar-nav me-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('categories.index') }}">
-                                    {{ __('Categories') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('quizs.index') }}">
-                                    {{ __('Tests') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('questions.index') }}">
-                                    {{ __('Questions') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('students_tests.index') }}">
-                                    {{ __('Students Tests') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('settings.index') }}">
-                                    {{ __('Settings') }}
-                                </a>
-                            </li>
+                        <ul class="navbar-nav me-auto app-nav">
+                            @if(Auth::user()->super_admin)
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
+                                        {{ __('Admin Dashboard') }}
+                                    </a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
+                                        {{ __('Categories') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('quizs.*') ? 'active' : '' }}" href="{{ route('quizs.index') }}">
+                                        {{ __('Tests') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('questions.*') ? 'active' : '' }}" href="{{ route('questions.index') }}">
+                                        {{ __('Questions') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('students_tests.*') ? 'active' : '' }}" href="{{ route('students_tests.index') }}">
+                                        {{ __('Students Tests') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('settings.*') ? 'active' : '' }}" href="{{ route('settings.index') }}">
+                                        {{ __('Settings') }}
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     @endif
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto app-account">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/register">{{ __('Register') }}</a>
-                                </li>
-                            @endif
                         @else
                             
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle app-user-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <span class="app-user-avatar">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</span>
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -120,8 +119,10 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="app-main">
+            <div class="app-content">
+                @yield('content')
+            </div>
         </main>
     </div>
 

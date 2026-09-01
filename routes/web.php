@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Exports\StudentTestExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/new-center', [App\Http\Controllers\NewCenterController::class, 'copy'])->name('new-center');
+
 Route::get('/', function () {
     return view('index');
+});
+
+Route::get('/test/{id?}', function ($id = 0) {
+    return view('test', ['id' => $id]);
 });
 
 Route::middleware([
@@ -23,6 +31,8 @@ Route::middleware([
 ])->group(function () {
 
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/admin/centers/{center}/renew', [App\Http\Controllers\DashboardController::class, 'renewCenter'])->name('admin.centers.renew');
+    Route::post('/admin/centers/{center}/password', [App\Http\Controllers\DashboardController::class, 'updateCenterPassword'])->name('admin.centers.password');
 
     Route::resource('categories', \App\Http\Controllers\CategorieController::class);
     Route::resource('quizs', \App\Http\Controllers\TestController::class);
@@ -30,6 +40,11 @@ Route::middleware([
     Route::resource('questions', \App\Http\Controllers\QuestionController::class);
     
     Route::get('students_tests/print/{student_test_id}/{correction}', '\App\Http\Controllers\StudentTestController@print')->name('students_tests.print');
+    Route::get('students_tests/export', function () {
+        return Excel::download(new StudentTestExport, 'users.xlsx');
+    })->name('students_tests.export');
+
+    Route::get('students_tests/export/{student_test_id}', '\App\Http\Controllers\StudentTestController@export')->name('students_tests.export');
     Route::post('students_tests/storemultiple', '\App\Http\Controllers\StudentTestController@storeMultiple')->name('students_tests.storemultiple');
     Route::resource('students_tests', \App\Http\Controllers\StudentTestController::class)->only(
         ['index', 'create', 'store', 'storemultiple', 'destroy', 'show', 'update', 'print']

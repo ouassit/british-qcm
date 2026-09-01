@@ -19,7 +19,7 @@ class StudentTest extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id', 'test_id', 'firstname','lastname','birthday','email','phone' , 'access_code', 'expired'];
+    protected $fillable = ['id', 'test_id', 'firstname','lastname','birthday','email','phone' , 'access_code', 'expired', 'consumed_time'];
 
     protected $appends = ['result', 'answers'];
 
@@ -40,12 +40,11 @@ class StudentTest extends Model
 
     public function getAnswersAttribute() {
         return DB::select('SELECT questions.question as question,
-                (SELECT answer FROM choices WHERE choices.question_id = questions.id AND correct=1) AS correct_choice,
-                (SELECT answer FROM answers JOIN choices ON choices.id=answers.choice_id WHERE answers.question_id = questions.id and student_test_id='.$this->id .') AS selected_choice,
-                (SELECT correct FROM answers JOIN choices ON choices.id=answers.choice_id WHERE answers.question_id = questions.id and student_test_id='.$this->id .') AS correct
+                (SELECT answer FROM choices WHERE choices.question_id = questions.id AND correct=1 limit 1) AS correct_choice,
+                (SELECT answer FROM answers JOIN choices ON choices.id=answers.choice_id WHERE answers.question_id = questions.id and student_test_id='.$this->id .' limit 1) AS selected_choice,
+                (SELECT correct FROM answers JOIN choices ON choices.id=answers.choice_id WHERE answers.question_id = questions.id and student_test_id='.$this->id .' limit 1) AS correct
                 from questions 
-                WHERE questions.test_id = '.$this->test_id );
-        
+                WHERE questions.test_id = '.$this->test_id .' order by ordre');
     }
 
 }

@@ -1,0 +1,1116 @@
+{
+  "Section 1: Starter (Pre-A1)": [
+    {
+      "question": "Hello! What’s ___ name?",
+      "choices": [
+        "your",
+        "mine",
+        "her",
+        "we"
+      ],
+      "answer": "your",
+      "index": 0
+    },
+    {
+      "question": "I ___ from Brazil.",
+      "choices": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "answer": "am",
+      "index": 2
+    },
+    {
+      "question": "This is ___ laptop.",
+      "choices": [
+        "some",
+        "the",
+        "an",
+        "a"
+      ],
+      "answer": "a",
+      "index": 3
+    },
+    {
+      "question": "What ___ you do?",
+      "choices": [
+        "does",
+        "do",
+        "is",
+        "are"
+      ],
+      "answer": "do",
+      "index": 1
+    },
+    {
+      "question": "I have ___ phone.",
+      "choices": [
+        "one",
+        "an",
+        "any",
+        "the"
+      ],
+      "answer": "an",
+      "index": 1
+    },
+    {
+      "question": "___ is your office?",
+      "choices": [
+        "Where",
+        "What",
+        "How",
+        "Which"
+      ],
+      "answer": "Where",
+      "index": 0
+    },
+    {
+      "question": "She ___ coffee in the morning.",
+      "choices": [
+        "drink",
+        "drinks",
+        "drinking",
+        "drinked"
+      ],
+      "answer": "drinks",
+      "index": 1
+    },
+    {
+      "question": "We ___ in the meeting room.",
+      "choices": [
+        "are",
+        "is",
+        "am",
+        "be"
+      ],
+      "answer": "are",
+      "index": 0
+    },
+    {
+      "question": "My colleague’s name ___ Anna.",
+      "choices": [
+        "are",
+        "be",
+        "is",
+        "am"
+      ],
+      "answer": "is",
+      "index": 2
+    }
+  ],
+  "Section 2: Elementary (A1)": [
+    {
+      "question": "That is ___ desk.",
+      "choices": [
+        "his",
+        "he",
+        "him",
+        "it"
+      ],
+      "answer": "his",
+      "index": 0
+    },
+    {
+      "question": "They ___ to work by train.",
+      "choices": [
+        "goes",
+        "going",
+        "go",
+        "gone"
+      ],
+      "answer": "go",
+      "index": 2
+    },
+    {
+      "question": "I usually ___ breakfast at 7.",
+      "choices": [
+        "has",
+        "having",
+        "have",
+        "had"
+      ],
+      "answer": "have",
+      "index": 2
+    },
+    {
+      "question": "My manager is ___ the office today.",
+      "choices": [
+        "in",
+        "on",
+        "at",
+        "into"
+      ],
+      "answer": "in",
+      "index": 0
+    },
+    {
+      "question": "___ you work on weekends?",
+      "choices": [
+        "Are",
+        "Do",
+        "Is",
+        "Does"
+      ],
+      "answer": "Do",
+      "index": 1
+    },
+    {
+      "question": "I don’t have ___ emails to answer.",
+      "choices": [
+        "many",
+        "any",
+        "much",
+        "some"
+      ],
+      "answer": "any",
+      "index": 1
+    },
+    {
+      "question": "There ___ a supermarket next to my apartment.",
+      "choices": [
+        "is",
+        "are",
+        "be",
+        "have"
+      ],
+      "answer": "is",
+      "index": 0
+    },
+    {
+      "question": "He ___ from Germany.",
+      "choices": [
+        "come",
+        "coming",
+        "comes",
+        "came"
+      ],
+      "answer": "comes",
+      "index": 2
+    },
+    {
+      "question": "___ she speak English?",
+      "choices": [
+        "Do",
+        "Does",
+        "Is",
+        "Are"
+      ],
+      "answer": "Does",
+      "index": 1
+    },
+    {
+      "question": "I always ___ coffee before work.",
+      "choices": [
+        "drink",
+        "drinks",
+        "drinking",
+        "drank"
+      ],
+      "answer": "drink",
+      "index": 0
+    }
+  ],
+  "Section 3: Upper Elementary (A2−)": [
+    {
+      "question": "He’s a ___ — he repairs cars.",
+      "choices": [
+        "doctor",
+        "teacher",
+        "mechanic",
+        "lawyer"
+      ],
+      "answer": "mechanic",
+      "index": 2
+    },
+    {
+      "question": "She ___ a new computer last week.",
+      "choices": [
+        "buys",
+        "bought",
+        "buying",
+        "has bought"
+      ],
+      "answer": "bought",
+      "index": 1
+    },
+    {
+      "question": "We ___ going to the conference.",
+      "choices": [
+        "is",
+        "are",
+        "be",
+        "were"
+      ],
+      "answer": "are",
+      "index": 1
+    },
+    {
+      "question": "___ you ever been to London?",
+      "choices": [
+        "Did",
+        "Do",
+        "Have",
+        "Has"
+      ],
+      "answer": "Have",
+      "index": 2
+    },
+    {
+      "question": "They ___ lunch when I arrived.",
+      "choices": [
+        "have",
+        "having",
+        "were having",
+        "had"
+      ],
+      "answer": "were having",
+      "index": 2
+    },
+    {
+      "question": "The restaurant is ___ the bank.",
+      "choices": [
+        "behind",
+        "in",
+        "on",
+        "to"
+      ],
+      "answer": "behind",
+      "index": 0
+    },
+    {
+      "question": "I’ve worked here ___ 2018.",
+      "choices": [
+        "for",
+        "in",
+        "since",
+        "at"
+      ],
+      "answer": "since",
+      "index": 2
+    },
+    {
+      "question": "We usually meet ___ Fridays.",
+      "choices": [
+        "at",
+        "by",
+        "on",
+        "in"
+      ],
+      "answer": "on",
+      "index": 2
+    },
+    {
+      "question": "This hotel is ___ than the last one.",
+      "choices": [
+        "expensive",
+        "more expensive",
+        "most expensive",
+        "expensiver"
+      ],
+      "answer": "more expensive",
+      "index": 1
+    },
+    {
+      "question": "You should ___ some water.",
+      "choices": [
+        "drinking",
+        "drink",
+        "drinks",
+        "drank"
+      ],
+      "answer": "drink",
+      "index": 1
+    },
+    {
+      "question": "I ___ like spicy food.",
+      "choices": [
+        "not",
+        "don’t",
+        "doesn’t",
+        "no"
+      ],
+      "answer": "don’t",
+      "index": 1
+    },
+    {
+      "question": "They ___ a presentation tomorrow.",
+      "choices": [
+        "have",
+        "are having",
+        "having",
+        "has"
+      ],
+      "answer": "are having",
+      "index": 1
+    },
+    {
+      "question": "I’m not very good ___ math.",
+      "choices": [
+        "at",
+        "in",
+        "for",
+        "on"
+      ],
+      "answer": "at",
+      "index": 0
+    },
+    {
+      "question": "___ the door, please.",
+      "choices": [
+        "Open",
+        "Opens",
+        "Opening",
+        "To open"
+      ],
+      "answer": "Open",
+      "index": 0
+    },
+    {
+      "question": "This is the ___ place to relax.",
+      "choices": [
+        "best",
+        "better",
+        "more good",
+        "well"
+      ],
+      "answer": "best",
+      "index": 0
+    }
+  ],
+  "Section 4: Pre-Intermediate (A2)": [
+    {
+      "question": "It ___ snow tomorrow.",
+      "choices": [
+        "will",
+        "may",
+        "can",
+        "does"
+      ],
+      "answer": "will",
+      "index": 0
+    },
+    {
+      "question": "I’ve never ___ sushi before.",
+      "choices": [
+        "eat",
+        "eaten",
+        "ate",
+        "eating"
+      ],
+      "answer": "eaten",
+      "index": 1
+    },
+    {
+      "question": "She ___ the report when I called.",
+      "choices": [
+        "writes",
+        "wrote",
+        "was writing",
+        "is writing"
+      ],
+      "answer": "was writing",
+      "index": 2
+    },
+    {
+      "question": "___ you ever worked abroad?",
+      "choices": [
+        "Did",
+        "Have",
+        "Do",
+        "Are"
+      ],
+      "answer": "Have",
+      "index": 1
+    },
+    {
+      "question": "They ___ on vacation last summer.",
+      "choices": [
+        "go",
+        "gone",
+        "went",
+        "going"
+      ],
+      "answer": "went",
+      "index": 2
+    },
+    {
+      "question": "I think he ___ late again.",
+      "choices": [
+        "be",
+        "will be",
+        "is being",
+        "was"
+      ],
+      "answer": "will be",
+      "index": 1
+    },
+    {
+      "question": "If I have time, I ___ the documents.",
+      "choices": [
+        "check",
+        "checked",
+        "will check",
+        "checking"
+      ],
+      "answer": "will check",
+      "index": 2
+    },
+    {
+      "question": "You ___ smoke in this building.",
+      "choices": [
+        "must",
+        "can",
+        "mustn’t",
+        "don’t"
+      ],
+      "answer": "mustn’t",
+      "index": 2
+    },
+    {
+      "question": "He stayed home ___ he felt sick.",
+      "choices": [
+        "although",
+        "because",
+        "so",
+        "but"
+      ],
+      "answer": "because",
+      "index": 1
+    },
+    {
+      "question": "She’s not experienced ___ to lead the team.",
+      "choices": [
+        "enough",
+        "very",
+        "too",
+        "so"
+      ],
+      "answer": "enough",
+      "index": 0
+    },
+    {
+      "question": "I was cooking when the phone ___.",
+      "choices": [
+        "ring",
+        "rang",
+        "was ringing",
+        "rings"
+      ],
+      "answer": "rang",
+      "index": 1
+    },
+    {
+      "question": "I’ve just ___ an important email.",
+      "choices": [
+        "receives",
+        "receiving",
+        "received",
+        "receive"
+      ],
+      "answer": "received",
+      "index": 2
+    },
+    {
+      "question": "He asked me if I ___ driving.",
+      "choices": [
+        "liked",
+        "like",
+        "likes",
+        "am liking"
+      ],
+      "answer": "liked",
+      "index": 0
+    },
+    {
+      "question": "Let’s meet for coffee, ___?",
+      "choices": [
+        "shall we",
+        "don’t we",
+        "do we",
+        "will we"
+      ],
+      "answer": "shall we",
+      "index": 0
+    },
+    {
+      "question": "This is the most delicious dish I ___ tried.",
+      "choices": [
+        "ever",
+        "never",
+        "already",
+        "did"
+      ],
+      "answer": "ever",
+      "index": 0
+    }
+  ],
+  "Section 5: Intermediate (B1)": [
+    {
+      "question": "We’ve been waiting ___ over an hour!",
+      "choices": [
+        "since",
+        "for",
+        "by",
+        "about"
+      ],
+      "answer": "for",
+      "index": 1
+    },
+    {
+      "question": "If I ___ more time, I’d start a course.",
+      "choices": [
+        "have",
+        "had",
+        "would have",
+        "will have"
+      ],
+      "answer": "had",
+      "index": 1
+    },
+    {
+      "question": "I don’t know where he ___.",
+      "choices": [
+        "is",
+        "are",
+        "was",
+        "were"
+      ],
+      "answer": "is",
+      "index": 0
+    },
+    {
+      "question": "She said she ___ been to that museum.",
+      "choices": [
+        "has",
+        "had",
+        "was",
+        "is"
+      ],
+      "answer": "had",
+      "index": 1
+    },
+    {
+      "question": "We ___ dinner when the guests arrived.",
+      "choices": [
+        "were having",
+        "are having",
+        "had",
+        "has"
+      ],
+      "answer": "were having",
+      "index": 0
+    },
+    {
+      "question": "I’m not used to ___ in big cities.",
+      "choices": [
+        "drive",
+        "driving",
+        "drove",
+        "to drive"
+      ],
+      "answer": "driving",
+      "index": 1
+    },
+    {
+      "question": "I wish I ___ a better job.",
+      "choices": [
+        "have",
+        "had",
+        "was",
+        "would have"
+      ],
+      "answer": "had",
+      "index": 1
+    },
+    {
+      "question": "That’s the company ___ CEO visited us.",
+      "choices": [
+        "who",
+        "whose",
+        "which",
+        "where"
+      ],
+      "answer": "whose",
+      "index": 1
+    },
+    {
+      "question": "You ___ attend the training — it’s mandatory.",
+      "choices": [
+        "should",
+        "can",
+        "must",
+        "may"
+      ],
+      "answer": "must",
+      "index": 2
+    },
+    {
+      "question": "I’d rather ___ home than go out.",
+      "choices": [
+        "stay",
+        "to stay",
+        "staying",
+        "stayed"
+      ],
+      "answer": "stay",
+      "index": 0
+    },
+    {
+      "question": "The man ___ helped me was very kind.",
+      "choices": [
+        "which",
+        "whom",
+        "who",
+        "what"
+      ],
+      "answer": "who",
+      "index": 2
+    },
+    {
+      "question": "I don’t mind ___ overtime.",
+      "choices": [
+        "to work",
+        "work",
+        "working",
+        "worked"
+      ],
+      "answer": "working",
+      "index": 2
+    },
+    {
+      "question": "She prefers tea ___ coffee.",
+      "choices": [
+        "to",
+        "from",
+        "over",
+        "than"
+      ],
+      "answer": "to",
+      "index": 0
+    },
+    {
+      "question": "We were late because the train ___ delayed.",
+      "choices": [
+        "didn’t come",
+        "wasn’t",
+        "had",
+        "was"
+      ],
+      "answer": "was",
+      "index": 3
+    },
+    {
+      "question": "I’ve lived in this city ___ ten years.",
+      "choices": [
+        "since",
+        "during",
+        "for",
+        "from"
+      ],
+      "answer": "for",
+      "index": 2
+    }
+  ],
+  "Section 6: Upper-Intermediate (B2)": [
+    {
+      "question": "This is the most difficult exam I’ve ever ___.",
+      "choices": [
+        "take",
+        "taken",
+        "took",
+        "taking"
+      ],
+      "answer": "taken",
+      "index": 1
+    },
+    {
+      "question": "Not only ___ the report, but he also presented it well.",
+      "choices": [
+        "did he write",
+        "he wrote",
+        "has he written",
+        "he has wrote"
+      ],
+      "answer": "did he write",
+      "index": 0
+    },
+    {
+      "question": "If she ___ earlier, she wouldn’t have missed the train.",
+      "choices": [
+        "had left",
+        "left",
+        "has left",
+        "leaves"
+      ],
+      "answer": "had left",
+      "index": 0
+    },
+    {
+      "question": "I wish I ___ how to code.",
+      "choices": [
+        "knew",
+        "know",
+        "have known",
+        "will know"
+      ],
+      "answer": "knew",
+      "index": 0
+    },
+    {
+      "question": "He’s interested ___ applying for the new role.",
+      "choices": [
+        "to",
+        "on",
+        "in",
+        "for"
+      ],
+      "answer": "in",
+      "index": 2
+    },
+    {
+      "question": "You ___ have told me about the meeting!",
+      "choices": [
+        "must",
+        "could",
+        "should",
+        "might"
+      ],
+      "answer": "should",
+      "index": 2
+    },
+    {
+      "question": "We’ll begin as soon as everyone ___.",
+      "choices": [
+        "arrive",
+        "will arrive",
+        "arrives",
+        "arriving"
+      ],
+      "answer": "arrives",
+      "index": 2
+    },
+    {
+      "question": "Hardly ___ the session started when someone interrupted.",
+      "choices": [
+        "had",
+        "has",
+        "did",
+        "have"
+      ],
+      "answer": "had",
+      "index": 0
+    },
+    {
+      "question": "It’s time we ___ the budget report.",
+      "choices": [
+        "submitted",
+        "submit",
+        "submitting",
+        "have submitted"
+      ],
+      "answer": "submitted",
+      "index": 0
+    },
+    {
+      "question": "They accused him ___ breaking the rules.",
+      "choices": [
+        "of",
+        "for",
+        "at",
+        "by"
+      ],
+      "answer": "of",
+      "index": 0
+    },
+    {
+      "question": "This article is thought ___ by an expert.",
+      "choices": [
+        "to have written",
+        "to be written",
+        "to have been written",
+        "written"
+      ],
+      "answer": "to have been written",
+      "index": 2
+    },
+    {
+      "question": "I regret not ___ the opportunity.",
+      "choices": [
+        "take",
+        "took",
+        "taken",
+        "taking"
+      ],
+      "answer": "taking",
+      "index": 3
+    },
+    {
+      "question": "No sooner had I sat down ___ the meeting started.",
+      "choices": [
+        "that",
+        "than",
+        "when",
+        "and"
+      ],
+      "answer": "than",
+      "index": 1
+    },
+    {
+      "question": "She behaves as though she ___ everything.",
+      "choices": [
+        "knows",
+        "knew",
+        "had known",
+        "know"
+      ],
+      "answer": "knew",
+      "index": 1
+    },
+    {
+      "question": "I’d rather you ___ the documents before tomorrow.",
+      "choices": [
+        "finish",
+        "finished",
+        "had finished",
+        "will finish"
+      ],
+      "answer": "finished",
+      "index": 1
+    }
+  ],
+  "Section 7: Advanced (C1/C2)": [
+    {
+      "question": "The issue was so complex that we couldn’t ___ it.",
+      "choices": [
+        "solve",
+        "to solve",
+        "solved",
+        "solving"
+      ],
+      "answer": "solve",
+      "index": 0
+    },
+    {
+      "question": "Scarcely had we started ___ the power went out.",
+      "choices": [
+        "when",
+        "than",
+        "that",
+        "then"
+      ],
+      "answer": "when",
+      "index": 0
+    },
+    {
+      "question": "The board demanded that he ___ present.",
+      "choices": [
+        "is",
+        "be",
+        "was",
+        "were"
+      ],
+      "answer": "be",
+      "index": 1
+    },
+    {
+      "question": "Were I in your position, I ___ a different decision.",
+      "choices": [
+        "make",
+        "would make",
+        "made",
+        "making"
+      ],
+      "answer": "would make",
+      "index": 1
+    },
+    {
+      "question": "Had she known, she ___ earlier.",
+      "choices": [
+        "come",
+        "had come",
+        "would have come",
+        "would come"
+      ],
+      "answer": "would have come",
+      "index": 2
+    },
+    {
+      "question": "This regulation, ___ is often misunderstood, affects all employees.",
+      "choices": [
+        "who",
+        "which",
+        "what",
+        "that"
+      ],
+      "answer": "which",
+      "index": 1
+    },
+    {
+      "question": "The company, ___ headquarters are in London, is expanding.",
+      "choices": [
+        "whose",
+        "which",
+        "that",
+        "who"
+      ],
+      "answer": "whose",
+      "index": 0
+    },
+    {
+      "question": "Rarely ___ we seen such innovation.",
+      "choices": [
+        "have",
+        "has",
+        "had",
+        "have we"
+      ],
+      "answer": "have we",
+      "index": 3
+    },
+    {
+      "question": "He acted as if he ___ the decision-maker.",
+      "choices": [
+        "is",
+        "was",
+        "were",
+        "had"
+      ],
+      "answer": "were",
+      "index": 2
+    },
+    {
+      "question": "No matter how hard he tried, he ___ please the client.",
+      "choices": [
+        "can’t",
+        "couldn’t",
+        "mustn’t",
+        "wasn’t"
+      ],
+      "answer": "couldn’t",
+      "index": 1
+    },
+    {
+      "question": "She’s reputed ___ started the movement.",
+      "choices": [
+        "to be",
+        "to have",
+        "to have been",
+        "being"
+      ],
+      "answer": "to have been",
+      "index": 2
+    },
+    {
+      "question": "Little ___ they realize the impact.",
+      "choices": [
+        "did",
+        "had",
+        "have",
+        "do"
+      ],
+      "answer": "did",
+      "index": 0
+    },
+    {
+      "question": "So successful ___ the campaign that sales doubled.",
+      "choices": [
+        "was",
+        "is",
+        "has",
+        "were"
+      ],
+      "answer": "was",
+      "index": 0
+    },
+    {
+      "question": "I’d sooner you ___ more clearly.",
+      "choices": [
+        "speak",
+        "spoke",
+        "had spoken",
+        "speaking"
+      ],
+      "answer": "spoke",
+      "index": 1
+    },
+    {
+      "question": "___ you informed earlier, we would’ve adjusted.",
+      "choices": [
+        "Have",
+        "Had",
+        "If",
+        "Should"
+      ],
+      "answer": "Had",
+      "index": 1
+    },
+    {
+      "question": "He’s known to ___ made major contributions.",
+      "choices": [
+        "have",
+        "had",
+        "has",
+        "be"
+      ],
+      "answer": "have",
+      "index": 0
+    },
+    {
+      "question": "She insisted that he ___ the report.",
+      "choices": [
+        "signs",
+        "sign",
+        "signed",
+        "had signed"
+      ],
+      "answer": "sign",
+      "index": 1
+    },
+    {
+      "question": "There’s no point ___ about it now.",
+      "choices": [
+        "worry",
+        "to worry",
+        "in worrying",
+        "worrying"
+      ],
+      "answer": "worrying",
+      "index": 3
+    },
+    {
+      "question": "Only after the audit ___ discovered.",
+      "choices": [
+        "was the mistake",
+        "the mistake was",
+        "did we",
+        "were"
+      ],
+      "answer": "was the mistake",
+      "index": 0
+    },
+    {
+      "question": "I suggest that she ___ a second opinion.",
+      "choices": [
+        "gets",
+        "get",
+        "will get",
+        "got"
+      ],
+      "answer": "get",
+      "index": 1
+    },
+    {
+      "question": "___ you meet the CEO, what will you ask?",
+      "choices": [
+        "If",
+        "Should",
+        "Were",
+        "Had"
+      ],
+      "answer": "Should",
+      "index": 1
+    }
+  ]
+}

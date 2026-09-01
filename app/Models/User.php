@@ -24,6 +24,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'expire_date',
+        'export_test',
+        'super_admin',
     ];
 
     /**
@@ -45,6 +48,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'expire_date' => 'date',
+        'export_test' => 'boolean',
+        'super_admin' => 'boolean',
     ];
 
     /**

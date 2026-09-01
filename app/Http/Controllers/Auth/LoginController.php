@@ -44,8 +44,12 @@ class LoginController extends Controller
         return 'username';
     }
 
-    public function authenticated()
+    public function authenticated(Request $request, $user)
     {
+        if ($user->super_admin) {
+            return redirect('/dashboard');
+        }
+
         return redirect('/students_tests');
     }
 

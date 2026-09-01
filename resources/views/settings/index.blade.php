@@ -33,7 +33,13 @@
 						<div class="form-check mb-3">
 							<input @if(auth()->user()->show_result==1) checked @endif class="form-check-input" id="show_result" type="checkbox" name="show_result">
 							<label class="form-check-label" for="show_result">
-								Show result in final step
+								Show result once finished
+							</label>
+						</div>
+						<div class="form-check mb-3">
+							<input @if(auth()->user()->print_category==1) checked @endif class="form-check-input" id="print_category" type="checkbox" name="print_category">
+							<label class="form-check-label" for="print_category">
+								Print categories
 							</label>
 						</div>
 

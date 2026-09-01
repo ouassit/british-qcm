@@ -58,9 +58,10 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th>Question</th>
+							<th>Category</th>
 							<th>Question</th>
 							<th>Choices</th>
+							<th>Order</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -70,6 +71,7 @@
 							<td>{{$question->categorie->name}}</td>
 							<td>{!!$question->question!!}</td>
 							<td>{{$question->choices->count()}}</td>
+							<td>{{$question->ordre}}</td>
 							<td>
 								<a name='edit' style="color: green;" href="#edit" data-target="#edit" data-id="{{$question->id}}" data-action-get="{{ route('questions.show', $question->id) }}" data-action="{{ route('questions.update', $question->id) }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 								<a style="color: red;" href="#delete" data-target="#delete" data-action="{{ route('questions.destroy', $question->id) }}"  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>

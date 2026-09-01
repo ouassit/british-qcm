@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>British Workshop Test</title>
+    <title>Placement Test Platform</title>
     <meta http-equiv="refresh" content="0; url=/dashboard">
 
 </head>

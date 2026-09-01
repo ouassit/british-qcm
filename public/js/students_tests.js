@@ -43,7 +43,6 @@ $('#addmultiple').find('form').submit(function(e) {
             $('#addmultiple-error').show();
         }
     });
-
 });
 
 $('#add').on('show.bs.modal', function (event) {
@@ -61,7 +60,28 @@ $('#add').find('form').submit(function(e) {
 
     var form = $(this);
     var actionUrl = form.attr('action'); 
-    var actionMethod = form.attr('method'); 
+    var actionMethod = form.attr('method');
+
+    let valid = true;
+    // Trim and validate firstname
+    const firstname = form.find('[id="firstname"]').val().trim();
+    if (firstname === '') {
+        $('[name="firstname-error"]').text('First name cannot be empty or spaces only');
+        valid = false;
+    } else {
+        $('[name="firstname-error"]').text('');
+    }
+
+    // Trim and validate lastname
+    const lastname = form.find('[id="lastname"]').val().trim();
+    if (lastname === '') {
+        $('[name="lastname-error"]').text('Last name cannot be empty or spaces only');
+        valid = false;
+    } else {
+        $('[name="lastname-error"]').text('');
+    }
+
+    if(!valid) return false;
 
     $.ajax({
         method: actionMethod,
@@ -95,6 +115,27 @@ $('#edit').find('form').submit(function(e) {
     var form = $(this);
     var actionUrl = form.attr('action'); 
     var actionMethod = form.attr('method'); 
+
+    let valid = true;
+    // Trim and validate firstname
+    const firstname = form.find('[id="firstname"]').val().trim();
+    if (firstname === '') {
+        $('[name="firstname-error"]').text('First name cannot be empty or spaces only');
+        valid = false;
+    } else {
+        $('[name="firstname-error"]').text('');
+    }
+
+    // Trim and validate lastname
+    const lastname = form.find('[id="lastname"]').val().trim();
+    if (lastname === '') {
+        $('[name="lastname-error"]').text('Last name cannot be empty or spaces only');
+        valid = false;
+    } else {
+            $('[name="lastname-error"]').text('');
+    }
+
+    if(!valid) return false;
 
     $.ajax({
         method: actionMethod,
