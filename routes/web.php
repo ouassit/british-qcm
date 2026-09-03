@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use App\Exports\StudentTestExport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -23,7 +24,10 @@ Route::get('/', function () {
 });
 
 Route::get('/test/{id?}', function ($id = 0) {
-    return view('test', ['id' => $id]);
+    $center = User::find($id);
+    $logoUrl = $center ? $center->logo_url : asset('images/logo-0.png');
+
+    return view('test', ['id' => $id, 'logoUrl' => $logoUrl]);
 });
 
 Route::middleware([

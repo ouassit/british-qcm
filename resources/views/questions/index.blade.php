@@ -11,7 +11,7 @@
 
 		<div name="header">
 			<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-				{{ __('Categories Management') }}
+				{{ __('Questions Management') }}
 			</h2>
 		</div>
 
@@ -50,7 +50,7 @@
 				<div class="table-title">
 					<div class="" style="margin-bottom: 10px">
 						<div class="col-sm-12">
-							<a href="#add" class="btn btn-success" data-toggle="modal"><i class="fa fa-plus"></i> <span>New Question</span></a>
+							<a name="add" href="#add" class="btn btn-success" data-action="{{ route('questions.store') }}" data-toggle="modal"><i class="fa fa-plus"></i> <span>New Question</span></a>
 						</div>
 					</div>
 				</div>

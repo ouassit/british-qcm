@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use \Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
 class SettingsController extends Controller
@@ -23,7 +24,7 @@ class SettingsController extends Controller
     {
         $user = auth()->user();
         $categories = Categorie::where('user_id', $user->id)->orderBy('name')->paginate(50);
-        return view('settings.index', compact('categories'));
+        return view('settings.index', compact('categories', 'user'));
     }
 
     /**
@@ -46,7 +47,19 @@ class SettingsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'logo' => ['nullable', 'image', 'mimes:png', 'max:2048'],
+        ]);
+
         $user = auth()->user();
+
+        if ($request->hasFile('logo')) {
+            File::ensureDirectoryExists(public_path('logos'));
+
+            $request->file('logo')->move(public_path('logos'), $user->id.'.png');
+            $user->logo = 'logos/'.$user->id.'.png';
+        }
+
         if($request->has('auto_step')){
             $user->auto_step = 1;
         } else {

@@ -23,8 +23,11 @@ class User extends Authenticatable
         'username',
         'name',
         'email',
+        'telephone',
+        'company',
         'password',
         'expire_date',
+        'logo',
         'export_test',
         'super_admin',
     ];
@@ -60,4 +63,22 @@ class User extends Authenticatable
      */
     protected $appends = [
     ];
+
+    public function getLogoUrlAttribute()
+    {
+        if ($this->logo && file_exists(public_path($this->logo))) {
+            return asset($this->logo);
+        }
+
+        return asset('images/logo-0.png');
+    }
+
+    public function getLogoFileAttribute()
+    {
+        if ($this->logo && file_exists(public_path($this->logo))) {
+            return public_path($this->logo);
+        }
+
+        return public_path('images/logo-0.png');
+    }
 }

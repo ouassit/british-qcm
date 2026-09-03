@@ -215,7 +215,7 @@
         <div id="access-code-div-page" style="min-height: 400px;; margin-top: 100px;" class="card page-card">
           <div class="card-content">
               <div class="center-align">
-                <img src="{{ asset('/images/logo-' . $id . '.png') }}" alt="Logo" class="logo">
+                <img src="{{ $logoUrl }}?v={{ time() }}" alt="Logo" class="logo">
               </div>
 
               <div>
@@ -244,7 +244,7 @@
             <div class="card-content">
 
               <div class="center-align">
-                <img src="{{ asset('images/logo-' . $id . '.png') }}" alt="Logo" class="logo">
+                <img src="{{ $logoUrl }}?v={{ time() }}" alt="Logo" class="logo">
               </div>
 
                 <div class="mb-3">
@@ -275,7 +275,7 @@
             <div class="card-content">
 
               <div class="center-align">
-                <img src="{{ asset('images/logo-' . $id . '.png') }}" alt="Logo" class="logo">
+                <img src="{{ $logoUrl }}?v={{ time() }}" alt="Logo" class="logo">
               </div>
 
                 <div class="mb-3">

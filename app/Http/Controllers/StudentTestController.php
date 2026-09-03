@@ -272,7 +272,7 @@ class StudentTestController extends Controller
             $pdf = PDF::loadView('print.index', 
             ['student_test' => $student_test, 
             'correction' => $correction, 
-            'logo' => public_path('images/logo-'.$student_test->test->user->id.'.png'),
+            'logo' => $student_test->test->user->logo_file,
             'true' => public_path('images/true.png'),
             'false' => public_path('images/false.png'),
             ]);
@@ -296,7 +296,7 @@ class StudentTestController extends Controller
 
             $pdf = PDF::loadView('export.index', 
             ['student_test' => $student_test, 
-            'logo' => public_path('images/logo-'.$student_test->test->user->id.'.png'),
+            'logo' => $student_test->test->user->logo_file,
             'true' => public_path('images/true.png'),
             'false' => public_path('images/false.png'),
             ]);
