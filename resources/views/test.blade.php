@@ -10,12 +10,12 @@
   <title>Qcm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Materialize CSS -->
-  <link href="{{ asset('app/bootstrap.min.css') }}" rel="stylesheet" >
-  <link href="{{ asset('app/all.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('app/jquery-ui.css') }}" rel="stylesheet" >
+  <link href="{{ asset('app/bootstrap.min.css') }}?v={{ time() }}" rel="stylesheet" >
+  <link href="{{ asset('app/all.min.css') }}?v={{ time() }}" rel="stylesheet">
+  <link href="{{ asset('app/jquery-ui.css') }}?v={{ time() }}" rel="stylesheet" >
   
 
-  <link href="{{ asset('/fonts/font.css') }}" rel="stylesheet">
+  <link href="{{ asset('/fonts/font.css') }}?v={{ time() }}" rel="stylesheet">
 
   <style>
     .full-button {
@@ -353,10 +353,10 @@
 
 
 
-  <script src="{{ asset('app/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('app/bootstrap.bundle.min.js') }}?v={{ time() }}"></script>
 
-  <script src="{{ asset('app/jquery-3.5.1.min.js') }}"></script>
-  <script src="{{ asset('app/jquery-ui.min.js') }}"></script>
+  <script src="{{ asset('app/jquery-3.5.1.min.js') }}?v={{ time() }}"></script>
+  <script src="{{ asset('app/jquery-ui.min.js') }}?v={{ time() }}"></script>
 
   <script>
 

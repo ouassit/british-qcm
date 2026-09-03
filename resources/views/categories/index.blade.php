@@ -5,7 +5,7 @@
    	<div class="row justify-content-center">
 
 		@push('scripts')
-			<script src="{{ asset('js/categories.js') }}"></script>
+			<script src="{{ asset('js/categories.js') }}?v={{ time() }}"></script>
 		@endpush	
 
 		<div name="header">

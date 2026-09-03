@@ -2,7 +2,7 @@
 
 @section('content')
 @push('scripts')
-   <script src="{{ asset('js/admin-dashboard.js') }}"></script>
+   <script src="{{ asset('js/admin-dashboard.js') }}?v={{ time() }}"></script>
 @endpush
 
 <div class="dashboard-page super-admin-page">

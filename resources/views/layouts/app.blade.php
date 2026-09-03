@@ -10,13 +10,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{asset('js/jquery-3.6.0.min.js')}}" crossorigin="anonymous"></script>
-    <script src="{{asset('js/jquery-ui.min.js')}}" crossorigin="anonymous"></script>
-    <script src="{{asset('js/popper.min.js')}}" crossorigin="anonymous"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/solid.min.js') }}" defer></script>
-    <script src="{{ asset('js/fontawesome.min.js') }}" defer></script>
+    <script src="{{asset('js/jquery-3.6.0.min.js')}}?v={{ time() }}" crossorigin="anonymous"></script>
+    <script src="{{asset('js/jquery-ui.min.js')}}?v={{ time() }}" crossorigin="anonymous"></script>
+    <script src="{{asset('js/popper.min.js')}}?v={{ time() }}" crossorigin="anonymous"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}?v={{ time() }}" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}?v={{ time() }}" defer></script>
+    <script src="{{ asset('js/solid.min.js') }}?v={{ time() }}" defer></script>
+    <script src="{{ asset('js/fontawesome.min.js') }}?v={{ time() }}" defer></script>
     <!--<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>-->
     <script src="{{ asset('js/common.js') }}?v={{ time() }}" defer></script>
 
@@ -28,9 +28,9 @@
     
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+    <link href="{{ asset('css/app.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}?v={{ time() }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}?v={{ time() }}">
 
 </head>
 <body class="app-body">
