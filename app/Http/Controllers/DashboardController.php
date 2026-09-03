@@ -201,6 +201,10 @@ class DashboardController extends Controller
                 $totalStudentTests = (clone $studentTestsQuery)->count();
                 $lastMonthStudentTests = (clone $studentTestsQuery)->whereDate('date', '>=', $lastMonthStart)->count();
                 $finishedTests = (clone $studentTestsQuery)->where('expired', 1)->count();
+                $completedTodayTests = (clone $studentTestsQuery)
+                    ->where('expired', 1)
+                    ->whereDate('date', Carbon::today())
+                    ->count();
                 $inProgressTests = (clone $studentTestsQuery)
                     ->where(function ($query) {
                         $query->where('expired', 0)->orWhereNull('expired');
@@ -243,6 +247,7 @@ class DashboardController extends Controller
                     'assigned' => $totalStudentTests,
                     'last_month_assigned' => $lastMonthStudentTests,
                     'finished' => $finishedTests,
+                    'completed_today' => $completedTodayTests,
                     'in_progress' => $inProgressTests,
                     'average_score' => $averageScore,
                 ];

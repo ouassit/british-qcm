@@ -109,6 +109,7 @@
                      <td>
                         <strong>{{ $center['assigned'] }}</strong>
                         <small class="admin-muted">{{ $center['last_month_assigned'] }} last 30 days</small>
+                        <small class="admin-muted">{{ $center['completed_today'] }} completed today</small>
                         <small class="admin-muted">{{ $center['finished'] }} finished, {{ $center['in_progress'] }} active</small>
                      </td>
                      <td>
