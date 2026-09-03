@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/test/{id?}', function ($id = 0) {
     $center = User::find($id);
-    $logoUrl = $center ? $center->logo_url : asset('logos/default-logo.png');
+    $logoUrl = $center ? $center->logo_url : asset('images/logos/default-logo.png');
 
     return view('test', ['id' => $id, 'logoUrl' => $logoUrl]);
 });
