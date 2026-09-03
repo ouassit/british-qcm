@@ -1060,9 +1060,7 @@ body.loading .overlay {
   gap: 0.7rem;
   padding: 2.25rem;
   color: #ffffff;
-  background:
-    linear-gradient(145deg, rgba(18, 42, 90, 0.94), rgba(15, 118, 110, 0.9)),
-    url("/images/logo-0.png");
+  background: linear-gradient(145deg, rgba(18, 42, 90, 0.94), rgba(15, 118, 110, 0.9));
   background-position: center;
   background-size: cover;
 }
