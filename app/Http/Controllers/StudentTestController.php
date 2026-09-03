@@ -30,7 +30,7 @@ class StudentTestController extends Controller
     public function index(Request $request)
     {
         $expireDate = Carbon::parse(auth()->user()->expire_date);
-        $now = Carbon::now();
+        $now = Carbon::today();
 
         
         // Difference in days between today and expire_date

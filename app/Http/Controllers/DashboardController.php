@@ -110,7 +110,7 @@ class DashboardController extends Controller
 
         $daysLeft = null;
         if (!empty($user->expire_date)) {
-            $daysLeft = Carbon::now()->diffInDays(Carbon::parse($user->expire_date), false);
+            $daysLeft = Carbon::today()->diffInDays(Carbon::parse($user->expire_date), false);
         }
         $expirationNotice = $this->expirationNotice($user);
 
@@ -306,7 +306,7 @@ class DashboardController extends Controller
         }
 
         $expireDate = Carbon::parse($user->expire_date);
-        $daysLeft = Carbon::now()->diffInDays($expireDate, false);
+        $daysLeft = Carbon::today()->diffInDays($expireDate, false);
 
         if ($daysLeft <= 15 && $daysLeft >= 0) {
             return [
