@@ -54,10 +54,10 @@ class SettingsController extends Controller
         $user = auth()->user();
 
         if ($request->hasFile('logo')) {
-            File::ensureDirectoryExists(public_path('logos'));
+            File::ensureDirectoryExists(public_path('images/logos'));
 
-            $request->file('logo')->move(public_path('logos'), $user->id.'.png');
-            $user->logo = 'logos/'.$user->id.'.png';
+            $request->file('logo')->move(public_path('images/logos'), $user->id.'.png');
+            $user->logo = 'images/logos/'.$user->id.'.png';
         }
 
         if($request->has('auto_step')){

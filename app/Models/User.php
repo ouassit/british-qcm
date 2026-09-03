@@ -70,7 +70,7 @@ class User extends Authenticatable
             return asset($this->logo);
         }
 
-        return asset('images/logo-0.png');
+        return asset('logos/default-log.png');
     }
 
     public function getLogoFileAttribute()
@@ -79,6 +79,6 @@ class User extends Authenticatable
             return public_path($this->logo);
         }
 
-        return public_path('images/logo-0.png');
+        return public_path('logos/default-log.png');
     }
 }
