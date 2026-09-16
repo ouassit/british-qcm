@@ -56,6 +56,16 @@
                                         {{ __('Admin Dashboard') }}
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('admin.centers.*') ? 'active' : '' }}" href="{{ route('admin.centers.index') }}">
+                                        {{ __('Centers') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ request()->routeIs('admin.test-import.*') ? 'active' : '' }}" href="{{ route('admin.test-import.index') }}">
+                                        {{ __('Import Tests') }}
+                                    </a>
+                                </li>
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">

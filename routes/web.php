@@ -37,6 +37,13 @@ Route::middleware([
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::post('/admin/centers/{center}/renew', [App\Http\Controllers\DashboardController::class, 'renewCenter'])->name('admin.centers.renew');
     Route::post('/admin/centers/{center}/password', [App\Http\Controllers\DashboardController::class, 'updateCenterPassword'])->name('admin.centers.password');
+    Route::get('/admin/centers', [App\Http\Controllers\AdminCenterController::class, 'index'])->name('admin.centers.index');
+    Route::get('/admin/centers/create', [App\Http\Controllers\AdminCenterController::class, 'create'])->name('admin.centers.create');
+    Route::post('/admin/centers', [App\Http\Controllers\AdminCenterController::class, 'store'])->name('admin.centers.store');
+    Route::post('/admin/centers/{center}/reset-password', [App\Http\Controllers\AdminCenterController::class, 'resetPassword'])->name('admin.centers.reset-password');
+    Route::get('/admin/test-import', [App\Http\Controllers\TestImportController::class, 'index'])->name('admin.test-import.index');
+    Route::get('/admin/test-import/centers/{center}/tests', [App\Http\Controllers\TestImportController::class, 'sourceTests'])->name('admin.test-import.tests');
+    Route::post('/admin/test-import', [App\Http\Controllers\TestImportController::class, 'import'])->name('admin.test-import.store');
 
     Route::resource('categories', \App\Http\Controllers\CategorieController::class);
     Route::resource('quizs', \App\Http\Controllers\TestController::class);

@@ -85,7 +85,7 @@
                             <label for="telephone">{{ __('Telephone') }}</label>
                             <div class="input-icon-field">
                                 <i class="material-icons" aria-hidden="true">phone</i>
-                                <input id="telephone" type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" required autocomplete="tel">
+                                <input id="telephone" type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" autocomplete="tel">
                             </div>
 
                             @error('telephone')
