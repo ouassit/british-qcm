@@ -49,7 +49,6 @@ Route::middleware([
     Route::resource('questions', \App\Http\Controllers\QuestionController::class);
     
     Route::get('students_tests/print/{student_test_id}/{correction}', '\App\Http\Controllers\StudentTestController@print')->name('students_tests.print');
-    Route::post('students_tests/location', [\App\Http\Controllers\StudentTestLocationController::class, 'store'])->name('students_tests.location');
     Route::get('students_tests/export', function () {
         return Excel::download(new StudentTestExport, 'users.xlsx');
     })->name('students_tests.export');
@@ -68,4 +67,4 @@ Route::middleware([
 
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'reset' => false]);

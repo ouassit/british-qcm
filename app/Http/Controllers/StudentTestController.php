@@ -75,11 +75,7 @@ class StudentTestController extends Controller
             'page' => '/students_tests',
             'ip_address' => $request->ip(),
         ]);
-        $locationToken = \Illuminate\Support\Facades\Crypt::encryptString(json_encode([
-            'id' => $pageConnection->id,
-            'expires' => time() + 3600,
-        ]));
-        return view('students_tests.index', compact('students_tests', 'tests', 'expire', 'expireMessage', 'export', 'pageConnection', 'locationToken'));
+        return view('students_tests.index', compact('students_tests', 'tests', 'expire', 'expireMessage', 'export', 'pageConnection'));
     }
 
     /**

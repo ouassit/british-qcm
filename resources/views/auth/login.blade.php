@@ -50,11 +50,6 @@
                         </label>
                     </div>
 
-                    @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}">
-                            {{ __('Forgot password?') }}
-                        </a>
-                    @endif
                 </div>
 
                 <button type="submit" class="btn btn-primary login-submit">

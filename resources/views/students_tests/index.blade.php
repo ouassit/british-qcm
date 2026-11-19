@@ -7,7 +7,6 @@
 
 	@push('scripts')
 		<script src="{{ asset('js/students_tests.js') }}?v={{ time() }}"></script>
-        <script src="{{ asset('js/students_tests_location.js') }}" defer></script>
 
         <script>
             $(document).ready(function() {
@@ -63,12 +62,8 @@
 		</div>
 	</div>
 
-    <div class="alert alert-info" id="page-location"
-         data-url="{{ route('students_tests.location') }}"
-         data-token="{{ $locationToken }}" data-csrf="{{ csrf_token() }}">
+    <div class="alert alert-info">
         Votre visite sur cette page est enregistrée. IP : <strong>{{ $pageConnection->ip_address }}</strong>.
-        <button type="button" class="btn btn-sm btn-outline-primary" id="share-page-location">Partager ma localisation (facultatif)</button>
-        <span id="page-location-status" role="status"></span>
     </div>
 
     <div class="table-responsive">
