@@ -62,10 +62,6 @@
 		</div>
 	</div>
 
-    <div class="alert alert-info">
-        Votre visite sur cette page est enregistrée. IP : <strong>{{ $pageConnection->ip_address }}</strong>.
-    </div>
-
     <div class="table-responsive">
 		<div class="table-wrapper">
 			<div class="table-title">
