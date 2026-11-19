@@ -1,25 +1,14 @@
 @extends('layouts.app')
 
+@section('body-class', 'simple-login')
+@section('simple-login', 'true')
+
 @section('content')
 <div class="login-page">
     <section class="login-card">
-        <div class="login-panel">
-            <span class="app-brand-mark login-brand-mark">PT</span>
-            <p class="dashboard-kicker">Placement Test Platform</p>
-            <h1>Sign in</h1>
-            <p>Access your dashboard, manage placement tests, and follow student progress.</p>
-
-            <div class="login-feature-list">
-                <span><i class="material-icons" aria-hidden="true">dashboard</i> Center statistics</span>
-                <span><i class="material-icons" aria-hidden="true">assignment</i> Student tests</span>
-                <span><i class="material-icons" aria-hidden="true">verified_user</i> Secure access</span>
-            </div>
-        </div>
-
         <div class="login-form-panel">
             <div class="login-form-heading">
-                <h2>{{ __('Welcome back') }}</h2>
-                <p>{{ __('Use your username and password to continue.') }}</p>
+                <h1>{{ __('Login') }}</h1>
             </div>
 
             <form method="POST" action="{{ route('login') }}" class="login-form">

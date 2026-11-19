@@ -33,8 +33,9 @@
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}?v={{ time() }}">
 
 </head>
-<body class="app-body">
+<body class="app-body @yield('body-class')">
     <div id="app" class="app-shell">
+        @unless(View::hasSection('simple-login'))
         <nav class="navbar navbar-expand-md app-navbar">
             <div class="container-fluid app-container">
                 <a class="navbar-brand app-brand" href="/dashboard">
@@ -128,6 +129,7 @@
                 </div>
             </div>
         </nav>
+        @endunless
 
         <main class="app-main">
             <div class="app-content">

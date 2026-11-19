@@ -1512,3 +1512,39 @@ body.loading .overlay {
     gap: 0.6rem;
   }
 }
+
+/* Minimal, centered sign-in page. */
+.simple-login .app-main {
+  padding: 0;
+}
+
+.simple-login .app-content {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.simple-login .login-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 1.25rem;
+  justify-items: center;
+}
+
+.simple-login .login-card {
+  width: 100%;
+  max-width: 440px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.simple-login .login-form-panel {
+  padding: clamp(1.25rem, 5vw, 2rem);
+}
+
+.simple-login .login-form-heading h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.65rem;
+  font-weight: 700;
+}
