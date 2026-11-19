@@ -464,7 +464,6 @@
                     <a class="btn-soft" href="{{ route('dashboard') }}">Dashboard</a>
                 @else
                     <a class="btn-soft" href="{{ route('login') }}">Login</a>
-                    <a class="btn-main" href="{{ route('register') }}">Create account</a>
                 @endauth
             </div>
         </nav>
@@ -480,7 +479,6 @@
                         Create categories, build tests, assign access codes, follow progress, and export student results from one clear dashboard.
                     </p>
                     <div class="hero-actions">
-                        <a class="btn-main" href="{{ route('register') }}">Start with a demo account</a>
                         <a class="btn-soft" href="{{ route('login') }}">Access dashboard</a>
                     </div>
                     <div class="hero-points">
@@ -567,8 +565,8 @@
             <div class="steps-grid">
                 <article class="step">
                     <span class="step-number">1</span>
-                    <h3>Create account</h3>
-                    <p>Sign up and get demo Grammar and Listening categories with sample questions.</p>
+                    <h3>Log in</h3>
+                    <p>Use the account provided by your administrator to access your placement tests.</p>
                 </article>
                 <article class="step">
                     <span class="step-number">2</span>
@@ -629,9 +627,9 @@
             <div class="cta-inner">
                 <div>
                     <h2>Start with ready-made demo content.</h2>
-                    <p>Create your account and explore the dashboard with sample categories, a demo test, and demo questions already loaded.</p>
+                    <p>Log in to explore the dashboard with sample categories, a demo test, and demo questions already loaded.</p>
                 </div>
-                <a class="btn-main" href="{{ route('register') }}">Create account</a>
+                <a class="btn-main" href="{{ route('login') }}">Login</a>
             </div>
         </section>
     </main>

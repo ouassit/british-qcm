@@ -70,7 +70,16 @@ class StudentTestController extends Controller
             $students_tests = $students_tests->where(DB::raw("CONCAT(firstname,' ',lastname, ' ', phone , ' ', access_code)"), 'like', '%'.$request->get('filter_fullname').'%');
         }
         $students_tests = $students_tests->orderBy('date', 'desc')->paginate(50);
-        return view('students_tests.index', compact('students_tests', 'tests', "expire", "expireMessage", "export"));
+        $pageConnection = \App\Models\UserPageConnection::create([
+            'user_id' => $user->id,
+            'page' => '/students_tests',
+            'ip_address' => $request->ip(),
+        ]);
+        $locationToken = \Illuminate\Support\Facades\Crypt::encryptString(json_encode([
+            'id' => $pageConnection->id,
+            'expires' => time() + 3600,
+        ]));
+        return view('students_tests.index', compact('students_tests', 'tests', 'expire', 'expireMessage', 'export', 'pageConnection', 'locationToken'));
     }
 
     /**
